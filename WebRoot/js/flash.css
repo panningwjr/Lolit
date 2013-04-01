@@ -1,0 +1,224 @@
+*{margin:0;padding:0;}
+.banner{width:100%;height:400px;}
+.slider{list-style:none}
+.slider li{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:400px;
+}
+.bg{
+	position:absolute;
+	left:0;
+	top:90px;
+	width:100%;
+	height:100%;
+	background-position:center top;
+	background-repeat:no-repeat;
+	-webkit-transition: opacity 800ms ease-in-out 0s;
+	-moz-transition: opacity 800ms ease-in-out 0s;
+	opacity:0;
+}
+.pic{
+	position:absolute;
+	top:90px;
+	left:-14px;
+	bottom:0;
+	width:100%;
+	background-repeat:no-repeat;
+	height:400px;
+	opacity:0;
+	-webkit-transition: all 800ms ease-in-out 0s;
+	-moz-transition: all 800ms ease-in-out 0s;
+}
+.txt-warp{
+	width:990px;
+	height:100%;
+	position:relative;
+	margin:0 auto;
+	zoom:1;
+}
+.txt{
+	position: absolute;
+	top: 40px;
+	left: -100px;
+	background-repeat: no-repeat;
+	width: 410px;
+	height: 130px;
+	text-indent: -9999em;
+	overflow: hidden;
+	-webkit-transition: all 800ms ease-in-out 0s;
+	-moz-transition: all 800ms ease-in-out 0s;
+	opacity:0;
+	z-index:1200;
+}
+
+.bg-1{
+	background-image:url(/Lolit/images/welcome/al1.jpg);
+}
+.bg-1-lay{
+	opacity:1 !important;
+}
+.bg-1-2-lay{
+	opacity:0;
+}
+.pic-1{
+	background:url(/Lolit/images/welcome/s2.png) no-repeat 50% 100%;
+}
+.pic-1-lay{
+	left:0 !important;
+	opacity:1 !important;
+}
+.pic-1-2-lay{
+	left:-14px;
+	opacity:0;
+}
+.txt-1{
+	background-image:url(/Lolit/images/welcome/al5.png);
+}
+.txt-1-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.txt-1-2-lay{
+	left:-100px;
+	opacity: 0;
+}
+
+.bg-2{
+	background-image:url(/Lolit/images/welcome/al2.jpg);
+}
+.bg-2-lay{
+	opacity:1 !important;
+}
+.bg-2-2-lay{
+	opacity:0;
+}
+.pic-2{
+	background:url(/Lolit/images/welcome/s1.png) no-repeat 50% 100%;
+}
+.pic-2-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.pic-2-2-lay{
+	left:-14px;
+	opacity:0;
+}
+.txt-2{
+	background-image:url(/Lolit/images/welcome/al6.png);
+}
+.txt-2-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.txt-2-2-lay{
+	left:-100px;
+	opacity: 0;
+}
+
+.bg-3{
+	background-image:url(/Lolit/images/welcome/al3.jpg);
+}
+.bg-3-lay{
+	opacity:1 !important;
+}
+.bg-3-2-lay{
+	opacity:0;
+}
+.pic-3{
+	background:url(/Lolit/images/welcome/s3.png) no-repeat 50% 100%;
+}
+.pic-3-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.pic-3-2-lay{
+	left:-14px;
+	opacity:0;
+}
+.txt-3{
+	background-image:url(/Lolit/images/welcome/al7.png);
+}
+.txt-3-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.txt-3-2-lay{
+	left:-100px;
+	opacity: 0;
+}
+
+
+
+.bg-4{
+	background-image:url(/Lolit/images/welcome/al4.jpg);
+}
+.bg-4-lay{
+	opacity:1 !important;
+}
+.bg-4-2-lay{
+	opacity:0;
+}
+.pic-4{
+	background:url(/Lolit/images/welcome/s4.png) no-repeat 50% 100%;
+}
+.pic-4-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.pic-4-2-lay{
+	left:-14px;
+	opacity:0;
+}
+.txt-4{
+	background-image:url(/Lolit/images/welcome/al8.png);
+}
+.txt-4-lay{
+	left:0 !important;
+	opacity: 1 !important;
+}
+.txt-4-2-lay{
+	left:-100px;
+	opacity: 0;
+}
+.count{
+	width:120px;
+	height:30px;
+	margin:0 auto;
+	position:relative;
+	top:490px;
+	z-index:1200;
+}
+.num{
+	
+}
+.num li{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background:#D05F00;
+	float:left;
+	margin:10px;
+	text-indent:-9999px;
+}
+.num li.on{
+	background:#4D4D4D
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

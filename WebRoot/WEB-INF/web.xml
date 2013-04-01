@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+
+	<servlet>
+		<servlet-name>GodUnion</servlet-name>
+		<jsp-file>/Back_End/back_end_sign_in.jsp</jsp-file>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DoRegist</servlet-name>
+		<servlet-class>servlet.frontend.teamRegist.DoRegist</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DoLot</servlet-name>
+		<servlet-class>servlet.frontend.teamRegist.DoLot</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ShowTeamListS2</servlet-name>
+		<servlet-class>servlet.frontend.teamRegist.ShowTeamListS2</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>TLogoUpload</servlet-name>
+		<servlet-class>servlet.frontend.teamRegist.TLogoUpload</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SignInBE</servlet-name>
+		<servlet-class>servlet.backend.hr.SignInBE</servlet-class>
+	</servlet>
+  <servlet>
+    <servlet-name>ShowTeamListS1</servlet-name>
+    <servlet-class>servlet.backend.committee.ShowTeamListS1</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowTeamDateCount</servlet-name>
+    <servlet-class>servlet.backend.committee.ShowTeamDateCount</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShowLastTeam</servlet-name>
+    <servlet-class>servlet.frontend.teamRegist.ShowLastTeam</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+	<servlet-mapping>
+		<servlet-name>GodUnion</servlet-name>
+		<url-pattern>/godunion</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DoRegist</servlet-name>
+		<url-pattern>/frontend/teamRegist/DoRegist</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DoLot</servlet-name>
+		<url-pattern>/frontend/teamRegist/DoLot</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowTeamListS2</servlet-name>
+		<url-pattern>/frontend/teamRegist/ShowTeamListS2</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>TLogoUpload</servlet-name>
+		<url-pattern>/frontend/teamRegist/TLogoUpload</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SignInBE</servlet-name>
+		<url-pattern>/hr/SignInBE</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowTeamListS1</servlet-name>
+    <url-pattern>/committee/ShowTeamListS1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowTeamDateCount</servlet-name>
+    <url-pattern>/committee/ShowTeamDateCount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShowLastTeam</servlet-name>
+    <url-pattern>/servlet/ShowLastTeam</url-pattern>
+  </servlet-mapping>
+
+
+	<welcome-file-list>
+		<welcome-file>home.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- <error-page> <error-code>404</error-code> <location>/error404.jsp</location> 
+		</error-page> <error-page> <exception-type>java.lang.Exception</exception-type> 
+		<location>/exception.jsp</location> </error-page> -->
+
+</web-app>
