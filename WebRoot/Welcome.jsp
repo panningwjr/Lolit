@@ -72,14 +72,30 @@
 
 	<section class="wel_apply shadow_b">
 		<ul class="wel_ul">
-			<li>竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
-			<li>完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
-			<li><object>
+			<li class="wel_li1">竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
+			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
+			<li class="wel_li3"><object>
 					<param name="wmode" value="Opaque">
-					<embed src="/Lolit/images/welcome/apply_button.swf" wmode="Opaque" ></embed>
+					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
 				</object>
 			</li>
+
+			<li class="radius_a wel_li4">
+				<section class="last_apply">
+					<ul id="idcontent">
+						<li>1源码爱好者提供源码、网页素材、</li>
+						<li>2考试#根据《注册定计师全国统一考试。</li>
+						<li>3[HTML5]3登陆页。</li>
+						<li>4我猜人就子吧。</li>
+						<li>5源码爱好者提源码下载站。</li>
+						<li>6源码爱好者提源码下载站。</li>
+						<li>7源码爱好者提源码下载站。</li>
+						<li>8源码爱好者提源码下载站。</li>
+						<li>9源码爱好者提源码下载站。</li>
+					</ul>
+				</section></li>
 			<li></li>
+			<li style="height: 50px;"></li>
 		</ul>
 	</section>
 
@@ -130,6 +146,19 @@
 			}
 		}
 	})
+	
+	//last team
+	function $de(id){
+        return typeof id === "string" ? document.getElementById(id) : id;
+    }
+    (function(){
+        var aLi = $de('idcontent').getElementsByTagName('li');
+        setInterval(function(){
+            var firstLi = aLi[aLi.length-1];
+            $de('idcontent').insertBefore(firstLi,aLi[0]);
+            firstLi.className = 'idcontent_chang';
+        },2000);
+    })();
 </script>
 
 </html>

@@ -32,6 +32,8 @@
 	.shadow_b					{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
 	.shadow_c					{ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); }
 
+	.radius_a					{ -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+
 	.bg_1						{ background: url(/Lolit/images/bg_1.jpg); background-position: -10px -50px; }
 	
 	blockquote					{ padding:20px; margin:0 40px 20px 20px; clear:both; }
@@ -80,14 +82,36 @@
 	.wel_header					{ width: 100%; height: 70px; background-color: #000; position: absolute; z-index: 1000; }
 	.wel_apply					{ width: 100%; height: 190px; background-color: #000; position: absolute; z-index: 1000; top: 470px; }
 	
-	.wel_ul						{ width: 1000px; height: 50px; color: #fedfaf; margin: 40px auto; text-align: center; }
-	.wel_ul li:nth-child(1)		{ position: absolute; left: 50%; margin: 0 0 0 -200px; }
-	.wel_ul li:nth-child(2)		{ height: 30px; color: #fedfaf; text-align: center; z-index: 200; background-color: rgba(0,0,0,0); position: absolute; left: 50%; margin: 13px 0 0 -150px; }
-	.wel_ul li:nth-child(3)		{ z-index: -200; }
-	.wel_ul li object	 		{ z-index: -200; }
-	.wel_ul li embed			{ width: 260px; height: 250px; margin: -38px auto; z-index: -200;  }
-	
+	.wel_ul						{ width: 800px; height: 50px; color: #fedfaf; margin: 40px auto; text-align: center; }
+	.wel_li1					{ position: absolute; left: 50%; margin: 0 0 0 -200px; }
+	.wel_li2					{ height: 30px; color: #fedfaf; text-align: center; z-index: 200; background-color: rgba(0,0,0,0); position: absolute; left: 50%; margin: 13px 0 0 -150px; }
 	.wel_ul em 					{ font-size: 2em; vertical-align: -9px; }
+	
+	.wel_li3					{ z-index: -200; }
+	.wel_ul li object	 		{ z-index: -200; }
+	.wel_ul li embed			{ width: 260px; height: 250px; margin: -23px auto; z-index: -200;  }
+	
+	.wel_li4	    			{ width: 300px; height: 300px; margin: 25px 0 0 0; -webkit-box-shadow: 0 0 10px rgba(96, 96, 96, 1); -moz-box-shadow: 0 0 10px rgba(96, 96, 96, 1); box-shadow: 0 0 10px rgba(48, 48, 48, 1); }
+	.last_apply					{ width: 310px; height: 300px; margin: 0 0 0 10px; background-color: #000; }
+	
+	#idcontent li				{ width: 280px; height: 30px; text-align: left; }
+	
+	
+	
+	
+	
+	.idcontent_chang 			{-webkit-animation:idcontent_height .7s linear,idcontent_opacity .5s linear .7s;}
+	
+    @-webkit-keyframes idcontent_height		{
+        0%{ height: 0px; opacity: 0; }
+        100%{ height: 200px; height: 32px ;opacity: 0; }
+    }
+    @-webkit-keyframes idcontent_opacity	{
+        0%{ opacity: 0; }
+        100%{ opacity: 1; }
+    }
+    
+    
 /* Register
 -------------------------------------------------------------------*/
 
