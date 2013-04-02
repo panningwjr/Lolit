@@ -10,6 +10,7 @@ public class Player {
 	private String pServer;
 	private int pWin;
 	private int team_tId;
+	private int pRank;
 
 	public int getpId() {
 		return pId;
@@ -58,6 +59,12 @@ public class Player {
 	}
 	public void setTeam_tId(int team_tId) {
 		this.team_tId = team_tId;
+	}
+	public int getpRank() {
+		return pRank;
+	}
+	public void setpRank(int pRank) {
+		this.pRank = pRank;
 	}
 	
 	
