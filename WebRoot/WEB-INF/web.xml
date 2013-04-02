@@ -37,14 +37,10 @@
     <servlet-class>servlet.backend.committee.ShowTeamListS1</servlet-class>
   </servlet>
   <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>ShowTeamDateCount</servlet-name>
-    <servlet-class>servlet.backend.committee.ShowTeamDateCount</servlet-class>
+    <servlet-name>ShowTeamDataCount</servlet-name>
+    <servlet-class>servlet.backend.committee.ShowTeamDataCount</servlet-class>
   </servlet>
   <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
     <servlet-name>ShowLastTeam</servlet-name>
     <servlet-class>servlet.frontend.teamRegist.ShowLastTeam</servlet-class>
   </servlet>
@@ -88,12 +84,12 @@
     <url-pattern>/committee/ShowTeamListS1</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>ShowTeamDateCount</servlet-name>
-    <url-pattern>/committee/ShowTeamDateCount</url-pattern>
+    <servlet-name>ShowTeamDataCount</servlet-name>
+    <url-pattern>/committee/ShowTeamDataCount</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ShowLastTeam</servlet-name>
-    <url-pattern>/servlet/ShowLastTeam</url-pattern>
+    <url-pattern>/committee/ShowLastTeam</url-pattern>
   </servlet-mapping>
 
 
