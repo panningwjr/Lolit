@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import dao.interfaces.TeamDAO;
 import dao.utils.DAOFactory;
 
-public class ShowTeamDateCount extends HttpServlet {
+public class ShowTeamDataCount extends HttpServlet {
 
 	/**
 	 * 

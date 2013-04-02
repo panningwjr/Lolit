@@ -1,10 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+<%@ page language="java" import="java.util.*,vo.*;" pageEncoding="UTF-8"
 	contentType="text/html; charset=utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
 %>
 
 <!DOCTYPE HTML>
@@ -30,6 +30,11 @@
 </head>
 
 <body>
+
+	<%
+		ArrayList<Team> tList = (ArrayList<Team>)request.getAttribute("tList");
+	%>
+
 	<header class="wel_header shadow_b"> </header>
 
 
@@ -40,25 +45,29 @@
 				<div class="pic pic-1"></div>
 				<div class="txt-warp">
 					<div class="txt txt-1"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-2"></div>
 				<div class="pic pic-2"></div>
 				<div class="txt-warp">
 					<div class="txt txt-2"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-3"></div>
 				<div class="pic pic-3"></div>
 				<div class="txt-warp">
 					<div class="txt txt-3"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-4"></div>
 				<div class="pic pic-4"></div>
 				<div class="txt-warp">
 					<div class="txt txt-4"></div>
-				</div></li>
+				</div>
+			</li>
 		</ul>
 		<div class="count">
 			<ul class="num">
@@ -77,23 +86,24 @@
 			<li class="wel_li3"><object>
 					<param name="wmode" value="Opaque">
 					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
-				</object>
-			</li>
+				</object></li>
 
-			<li class="radius_a wel_li4">
+			<li class="wel_li4">
 				<section class="last_apply">
 					<ul id="idcontent">
-						<li>1源码爱好者提供源码、网页素材、</li>
-						<li>2考试#根据《注册定计师全国统一考试。</li>
-						<li>3[HTML5]3登陆页。</li>
-						<li>4我猜人就子吧。</li>
-						<li>5源码爱好者提源码下载站。</li>
-						<li>6源码爱好者提源码下载站。</li>
-						<li>7源码爱好者提源码下载站。</li>
-						<li>8源码爱好者提源码下载站。</li>
-						<li>9源码爱好者提源码下载站。</li>
+						<%
+							for (int i = 0; i < tList.size(); i++) {
+								Team team = tList.get(i);
+								String date = String.valueOf(team.gettId());
+						%>
+						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
+						</li>
+						<%
+							}
+						%>
 					</ul>
-				</section></li>
+				</section>
+			</li>
 			<li></li>
 			<li style="height: 50px;"></li>
 		</ul>
@@ -115,7 +125,7 @@
 			var arr = [ 0, 3, 2, 1, 0 ];
 			$(".num li").removeClass("on").eq(arr[j]).addClass("on");
 			console.log(j + ":::" + arr[j]);
-		}, 7000)
+		}, 8000)
 		function a(i) {
 			$(".bg-" + i).addClass("bg-" + i + "-lay");
 			$(".pic-" + i).addClass("pic-" + i + "-lay");
@@ -146,19 +156,25 @@
 			}
 		}
 	})
-	
+
 	//last team
-	function $de(id){
-        return typeof id === "string" ? document.getElementById(id) : id;
-    }
-    (function(){
-        var aLi = $de('idcontent').getElementsByTagName('li');
-        setInterval(function(){
-            var firstLi = aLi[aLi.length-1];
-            $de('idcontent').insertBefore(firstLi,aLi[0]);
-            firstLi.className = 'idcontent_chang';
-        },2000);
-    })();
+	function $de(id) {
+		return typeof id === "string" ? document.getElementById(id) : id;
+	}
+	(function() {
+		var aLi = $de('idcontent').getElementsByTagName('li');
+		aLi[aLi.length - 1].className = 'idcontent_hidden';
+		aLi[aLi.length - 2].className = 'idcontent_hidden';
+		setInterval(function() {
+			var firstLi = aLi[aLi.length - 1];
+			var last1 = aLi[aLi.length - 2];
+			var last1 = aLi[aLi.length - 3];
+			$de('idcontent').insertBefore(firstLi, aLi[0]);
+			firstLi.className = 'idcontent_chang';
+			last1.className = 'idcontent_hidden';
+			last2.className = 'idcontent_hidden';
+		}, 3000);
+	})();
 </script>
 
 </html>
