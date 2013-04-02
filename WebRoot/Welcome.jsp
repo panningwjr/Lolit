@@ -87,9 +87,9 @@
 					<param name="wmode" value="Opaque">
 					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
 				</object></li>
-
 			<li class="wel_li4">
 				<section class="last_apply">
+					<label>队伍名</label><label>代表学院</label><label>报名时间</label>
 					<ul id="idcontent">
 						<%
 							for (int i = 0; i < tList.size(); i++) {
@@ -103,6 +103,7 @@
 						%>
 					</ul>
 				</section>
+				<section class="last_apply_ps"><h1><%=tList.size() %></h1><span>支队伍已经参与报名。</span></section>
 			</li>
 			<li></li>
 			<li style="height: 50px;"></li>
