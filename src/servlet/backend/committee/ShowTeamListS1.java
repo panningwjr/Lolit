@@ -30,11 +30,6 @@ public class ShowTeamListS1 extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		//检查teamData数据统计，有就向后传递request
-		if(request.getAttribute("teamData")!=null){
-			request.setAttribute("teamData", request.getAttribute("teamData"));
-		}
-
 		ArrayList<Team> tList = new ArrayList<Team>();
 		TeamDAO tDAO = null;
 		String url = "/Back_End/back_end_prompt.jsp";
@@ -49,7 +44,6 @@ public class ShowTeamListS1 extends HttpServlet {
 			System.out.println("teamList size:" + tList.size());
 
 		} catch (Exception e) {
-			url = url + "?e=102";
 			e.printStackTrace();
 		} finally {
 			try {

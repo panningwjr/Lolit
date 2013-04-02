@@ -45,7 +45,4 @@ public interface TeamDAO {
 	
 	//查看各区报名人数  主要分 东，南，西， 北苑 4个区域
 	public List<Integer> getBelongAreaCount(List<Integer> instituteCount) throws Exception;
-	
-	//查看各rank区间人数
-	public List<Integer> doSelectRankCount() throws Exception;
 }

@@ -63,9 +63,11 @@ public class DoRegist extends HttpServlet {
 				path = pathF + "?e=902";
 			}
 
+			System.out.println(request.getParameter("tPhone"));
 			long tPhone = Long.parseLong(request.getParameter("tPhone")); // 获得队伍联系电话
 
 			String tGrade = request.getParameter("tGrade");
+			System.out.println(tGrade);// 所属年级
 			String tMajor = request.getParameter("tMajor"); // 所属专业 select标签
 															// 得到的是value值
 			// if(tGrade == null || "".equals(tGrade) || tMajor == null ||
@@ -77,16 +79,15 @@ public class DoRegist extends HttpServlet {
 			if (tBelonging == null || "".equals(tBelonging)) {
 				path = pathF + "?e=903";
 			}
-			// String tZeros = request.getParameter("tZero"); //
-			// 是否愿意参加0级赛，1表示愿意，0表示不愿意
+			String tZeros = request.getParameter("tZero"); // 是否愿意参加0级赛，1表示愿意，0表示不愿意
 
-			// if (tZeros == null || "".equals(tZeros)) {
-			// path = pathF + "?e=904";
-			// }
-			// boolean tZero = true; // 是否愿意参加0级赛,默认愿意
-			// if (tZeros.equals("0")) {
-			// tZero = false;
-			// }
+			if (tZeros == null || "".equals(tZeros)) {
+				path = pathF + "?e=904";
+			}
+			boolean tZero = true; // 是否愿意参加0级赛,默认愿意
+			if (tZeros.equals("0")) {
+				tZero = false;
+			}
 
 			String[] pBench = request.getParameterValues("pBench"); // 是否有替补队员
 
@@ -110,8 +111,6 @@ public class DoRegist extends HttpServlet {
 				p.setpServer(request.getParameter("pServer" + (k + 1)));
 				p.setpWin(Integer.parseInt(request.getParameter("pWin"
 						+ (k + 1))));
-				p.setpRank(Integer.parseInt(request.getParameter("pRank"
-						+ (k + 1))));
 				players.add(p);
 			}
 
@@ -121,7 +120,7 @@ public class DoRegist extends HttpServlet {
 			team.settPwd(tPwd1);
 			team.settPhone(tPhone);
 			team.settBelonging(tBelonging);
-			// team.settZero(tZero);
+			team.settZero(tZero);
 			team.setP1(players.get(0));
 			// team.setP2(players.get(1));
 			// team.setP3(players.get(2));

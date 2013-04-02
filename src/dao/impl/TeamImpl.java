@@ -75,11 +75,11 @@ public class TeamImpl implements TeamDAO {
 		String tPwd = team.gettPwd();
 		long tPhone = team.gettPhone();
 		String tBelonging = team.gettBelonging();
-		// boolean tZeros = team.gettZero();
-		// int tZero = 0;
-		// if (tZeros) {
-		// tZero = 1;
-		// }
+		boolean tZeros = team.gettZero();
+		int tZero = 0;
+		if (tZeros) {
+			tZero = 1;
+		}
 
 		int pId;
 		String pName = null;
@@ -87,7 +87,6 @@ public class TeamImpl implements TeamDAO {
 		String pDormitory = null;
 		String pLolExp = null;
 		String pServer = null;
-		int pRank;
 		int pWin;
 
 		String teamsql = "";
@@ -115,7 +114,7 @@ public class TeamImpl implements TeamDAO {
 			// System.out.println("队伍名称已存在！");
 			// } else {
 			// System.out.println(tZero);
-			teamsql = "insert into Lolit.team (tId,tName,tPwd,tPhone,tBelonging,tState) values ('"
+			teamsql = "insert into Lolit.team (tId,tName,tPwd,tPhone,tBelonging,tZero,tState) values ('"
 					+ tId
 					+ "','"
 					+ tName
@@ -123,7 +122,7 @@ public class TeamImpl implements TeamDAO {
 					+ tPwd
 					+ "','"
 					+ tPhone
-					+ "','" + tBelonging + "','1')"; // 插入队伍信息sql语句
+					+ "','" + tBelonging + "','" + tZero + "','1')"; // 插入队伍信息sql语句
 			System.out.println(teamsql);
 			pstmt = conn.prepareStatement(teamsql);
 			inta = pstmt.executeUpdate();
@@ -143,9 +142,8 @@ public class TeamImpl implements TeamDAO {
 				pLolExp = p.getpLolExp();
 				pServer = p.getpServer();
 				pWin = p.getpWin();
-				pRank = p.getpRank();
 
-				playersql = "insert into Lolit.player (pId,pName,pGender,pDormitory,pLolExp,pServer,pWin,team_tId,pRank) values ('"
+				playersql = "insert into Lolit.player (pId,pName,pGender,pDormitory,pLolExp,pServer,pWin,team_tId) values ('"
 						+ pId
 						+ "','"
 						+ pName
@@ -157,7 +155,7 @@ public class TeamImpl implements TeamDAO {
 						+ pLolExp
 						+ "','"
 						+ pServer
-						+ "','" + pWin + "','" + tId + "','" + pRank + "')";
+						+ "','" + pWin + "','" + tId + "')";
 				System.out.println("插入队员：" + playersql);
 				pinta = pstmt.executeUpdate(playersql);
 				if (pinta > 0) {
@@ -364,7 +362,7 @@ public class TeamImpl implements TeamDAO {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
-					serverCount.add(rs.getInt(1));
+					serverCount.add(rs.getInt(0));
 				}
 			}
 		} catch (Exception e) {
@@ -388,7 +386,7 @@ public class TeamImpl implements TeamDAO {
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
-					winCount.add(rs.getInt(1));
+					winCount.add(rs.getInt(0));
 				}
 			}
 		} catch (Exception e) {
@@ -402,71 +400,33 @@ public class TeamImpl implements TeamDAO {
 		List<Integer> instituteCount = new ArrayList<Integer>();
 		String[] institute = { "%纺织学部", "%材料科学与工程学院", "%环境与化学工程学院", "%机械工程学院",
 				"%计算机科学与软件学院", "%电气工程与自动化学院", "%电子与信息工程学院", "%理学院", "%艺术与服装学院",
-				"%管理学院", "%经济学院", "%人文与法学院", "%外国语学院", "%应用技术学院、继续教育学院",
-				"%国际教育学院" };
+				"%管理学院", "%经济学院", "%人文与法学院", "%外国语学院", "%应用技术学院、继续教育学院", "%国际教育学院" };
 		String sql = "";
-
-		try {
-			for (int i = 0; i < institute.length; i++) {
-				sql = "SELECT COUNT(*) FROM lolit.team WHERE tBelonging LIKE '"
-						+ institute[i] + "'";
+		
+		try{
+			for(int i = 0;i<institute.length;i++){
+				sql = "SELECT COUNT(*) FROM lolit.team WHERE tBelonging LIKE '"+institute[i]+"'";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					instituteCount.add(rs.getInt(1));
+				if(rs.next()){
+					instituteCount.add(rs.getInt(0));
 				}
 			}
-		} catch (Exception e) {
+		}catch (Exception e) {
 			throw e;// TODO: handle exception
 		}
 
 		return instituteCount;
 	}
-
-	// 查看各区报名人数
-	public List<Integer> getBelongAreaCount(List<Integer> instituteCount)
-			throws Exception {
-		// "0,纺织学部", "1,材料科学与工程学院", "2,环境与化学工程学院", "3,机械工程学院",
-		// "4,计算机科学与软件学院", "5,电气工程与自动化学院", "6,电子与信息工程学院", "7,理学院", "8,艺术与服装学院",
-		// "9,管理学院", "10,经济学院", "11,人文与法学院", "12,外国语学院", "13,应用技术学院、继续教育学院",
-		// "14,国际教育学院"
+	
+	//查看各区报名人数
+	public List<Integer> getBelongAreaCount(List<Integer> instituteCount) throws Exception {
 		List<Integer> areaCount = new ArrayList<Integer>();
-		int eastCount = 0, westCount = 0, northCount = 0;
-		eastCount = instituteCount.get(1) + instituteCount.get(2)
-				+ instituteCount.get(3) + instituteCount.get(5)
-				+ instituteCount.get(6) + instituteCount.get(8)
-				+ instituteCount.get(14);
-		westCount = instituteCount.get(7) + instituteCount.get(9)
-				+ instituteCount.get(10) + instituteCount.get(11)
-				+ instituteCount.get(12);
-		northCount = instituteCount.get(0) + instituteCount.get(4);
-		areaCount.add(eastCount);
-		areaCount.add(westCount);
-		areaCount.add(northCount);
-		return areaCount;
-	}
-
-	// 查看各rank区间人数
-	public List<Integer> doSelectRankCount() throws Exception {
-		List<Integer> rankCount = new ArrayList<Integer>();
-		String sql = "";
-		// rank区间
-		int[] min = { 0, 500, 1000, 1300, 1500, 1600, 1800 };
-		int[] max = { 1, 1000, 1300, 1500, 1600, 1800, 2800 };
-
-		try {
-			for (int i = 0; i < min.length; i++) {
-				sql = "SELECT COUNT(*) FROM lolit.player WHERE pRank >= '"
-						+ min[i] + "' AND pRank < '" + max[i] + "'";
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					rankCount.add(rs.getInt(1));
-				}
-			}
-		} catch (Exception e) {
+		try{
+			
+		}catch (Exception e) {
 			throw e;// TODO: handle exception
 		}
-		return rankCount;
+		return areaCount;
 	}
 }
