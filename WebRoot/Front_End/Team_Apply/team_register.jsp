@@ -64,21 +64,21 @@
 							<option>11</option>
 							<option>12</option>
 					</select><label>级</label><select id="tMajor" name="tMajor">
-							<option value="艺术与服装学院">艺术服装</option>
-							<option value="计算机科学与软件学院">计算机软件</option>
-							<option value="纺织学部">纺织</option>
-							<option value="材料科学与工程学院">材料科学</option>
-							<option value="环境与化学工程学院">环境化学</option>
-							<option value="机械工程学院">机械工程</option>
-							<option value="电气工程与自动化学院">电气自动化</option>
-							<option value="电子与信息工程学院">电子信息</option>
-							<option value="理学院">理</option>
-							<option value="管理学院">管理</option>
-							<option value="经济学院">经济</option>
-							<option value="人文与法学院">人文与法</option>
-							<option value="外国语学院">外国语</option>
-							<option value="应用技术学院、继续教育学院">应用技术</option>
-							<option value="国际教育学院">国际教育</option>
+							<option value="艺术服装">艺术服装</option>
+							<option value="计算机软件">计算机软件</option>
+							<option value="纺织">纺织</option>
+							<option value="材料科学">材料科学</option>
+							<option value="环境化学">环境化学</option>
+							<option value="机械工程">机械工程</option>
+							<option value="电气自动化">电气自动化</option>
+							<option value="电子信息">电子信息</option>
+							<option value="理">理</option>
+							<option value="管理">管理</option>
+							<option value="经济">经济</option>
+							<option value="人文与法">人文与法</option>
+							<option value="外国语">外国语</option>
+							<option value="应用技术">应用技术</option>
+							<option value="国际教育">国际教育</option>
 					</select><label>学院</label></li>
 					<li class="li_form"><label for="pWin1" class="label_reg">队员平均胜场:</label><input
 						type="number" name="pWin1" id="pWin1" min="0" max="10000"><label>场</label>
