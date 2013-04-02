@@ -2,17 +2,19 @@ package servlet.backend.committee;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import vo.Team;
+import vo.TeamData;
+
 import dao.interfaces.TeamDAO;
 import dao.utils.DAOFactory;
 
-public class ShowTeamListS1 extends HttpServlet {
+public class ShowTeamDataCount extends HttpServlet {
 
 	/**
 	 * 
@@ -21,35 +23,41 @@ public class ShowTeamListS1 extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doPost(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=utf-8");
-
-		//检查teamData数据统计，有就向后传递request
-		if(request.getAttribute("teamData")!=null){
-			request.setAttribute("teamData", request.getAttribute("teamData"));
-		}
-
-		ArrayList<Team> tList = new ArrayList<Team>();
+		TeamData teamData = new TeamData();
 		TeamDAO tDAO = null;
 		String url = "/Back_End/back_end_prompt.jsp";
 
+		List<Integer> serverCount = new ArrayList<Integer>();
+		List<Integer> winCount = new ArrayList<Integer>();
+		List<Integer> instituteCount = new ArrayList<Integer>();
+		List<Integer> areaCount = new ArrayList<Integer>();
+		List<Integer> rankCount = new ArrayList<Integer>();
 		try {
-
 			tDAO = DAOFactory.getTeamDAOInstance();
-			tList = (ArrayList<Team>) tDAO.doSelectForTeamList(1);
+			serverCount = tDAO.doSelectForServerCount();
+			winCount = tDAO.doSelectForWinCount();
+			instituteCount = tDAO.doSelectForInstituteCount();
+			areaCount = tDAO.getBelongAreaCount(instituteCount);
+			rankCount = tDAO.doSelectRankCount();
 
-			request.setAttribute("tList", tList);
-			url = "/Back_End/Committee/committee_apply_info.jsp";
-			System.out.println("teamList size:" + tList.size());
+			teamData.setServerCount(serverCount);
+			teamData.setWinCount(winCount);
+			teamData.setInstituteCount(instituteCount);
+			teamData.setAreaCount(areaCount);
+			teamData.setRankCount(rankCount);
 
+			request.setAttribute("teamData", teamData);
+
+			url = "/committee/ShowTeamListS1";
 		} catch (Exception e) {
-			url = url + "?e=102";
+			url = url + "?e=101";
 			e.printStackTrace();
 		} finally {
 			try {
@@ -59,6 +67,6 @@ public class ShowTeamListS1 extends HttpServlet {
 			}
 			request.getRequestDispatcher(url).forward(request, response);
 		}
-	}
 
+	}
 }
