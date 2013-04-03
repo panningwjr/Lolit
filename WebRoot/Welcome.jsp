@@ -1,10 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
+<%@ page language="java" import="java.util.*,vo.*;" pageEncoding="UTF-8"
 	contentType="text/html; charset=utf-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
 %>
 
 <!DOCTYPE HTML>
@@ -30,6 +30,11 @@
 </head>
 
 <body>
+
+	<%
+		ArrayList<Team> tList = (ArrayList<Team>)request.getAttribute("tList");
+	%>
+
 	<header class="wel_header shadow_b"> </header>
 
 
@@ -40,25 +45,29 @@
 				<div class="pic pic-1"></div>
 				<div class="txt-warp">
 					<div class="txt txt-1"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-2"></div>
 				<div class="pic pic-2"></div>
 				<div class="txt-warp">
 					<div class="txt txt-2"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-3"></div>
 				<div class="pic pic-3"></div>
 				<div class="txt-warp">
 					<div class="txt txt-3"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-4"></div>
 				<div class="pic pic-4"></div>
 				<div class="txt-warp">
 					<div class="txt txt-4"></div>
-				</div></li>
+				</div>
+			</li>
 		</ul>
 		<div class="count">
 			<ul class="num">
@@ -72,14 +81,32 @@
 
 	<section class="wel_apply shadow_b">
 		<ul class="wel_ul">
-			<li>竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
-			<li>完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
-			<li><object>
+			<li class="wel_li1">竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
+			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
+			<li class="wel_li3"><object>
 					<param name="wmode" value="Opaque">
-					<embed src="/Lolit/images/welcome/apply_button.swf" wmode="Opaque" ></embed>
-				</object>
+					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
+				</object></li>
+			<li class="wel_li4">
+				<section class="last_apply">
+					<label>队伍名</label><label>代表学院</label><label>报名时间</label>
+					<ul id="idcontent">
+						<%
+							for (int i = 0; i < tList.size(); i++) {
+								Team team = tList.get(i);
+								String date = String.valueOf(team.gettId());
+						%>
+						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
+						</li>
+						<%
+							}
+						%>
+					</ul>
+				</section>
+				<section class="last_apply_ps"><h1><%=tList.size() %></h1><span>支队伍已经参与报名。</span></section>
 			</li>
 			<li></li>
+			<li style="height: 50px;"></li>
 		</ul>
 	</section>
 
@@ -99,7 +126,7 @@
 			var arr = [ 0, 3, 2, 1, 0 ];
 			$(".num li").removeClass("on").eq(arr[j]).addClass("on");
 			console.log(j + ":::" + arr[j]);
-		}, 7000)
+		}, 8000)
 		function a(i) {
 			$(".bg-" + i).addClass("bg-" + i + "-lay");
 			$(".pic-" + i).addClass("pic-" + i + "-lay");
@@ -130,6 +157,25 @@
 			}
 		}
 	})
+
+	//last team
+	function $de(id) {
+		return typeof id === "string" ? document.getElementById(id) : id;
+	}
+	(function() {
+		var aLi = $de('idcontent').getElementsByTagName('li');
+		aLi[aLi.length - 1].className = 'idcontent_hidden';
+		aLi[aLi.length - 2].className = 'idcontent_hidden';
+		setInterval(function() {
+			var firstLi = aLi[aLi.length - 1];
+			var last1 = aLi[aLi.length - 2];
+			var last1 = aLi[aLi.length - 3];
+			$de('idcontent').insertBefore(firstLi, aLi[0]);
+			firstLi.className = 'idcontent_chang';
+			last1.className = 'idcontent_hidden';
+			last2.className = 'idcontent_hidden';
+		}, 3000);
+	})();
 </script>
 
 </html>
