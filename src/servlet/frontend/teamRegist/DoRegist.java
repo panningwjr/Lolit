@@ -139,16 +139,20 @@ public class DoRegist extends HttpServlet {
 			} else {
 				try {
 					if (tDAO.doSelectTeamName(tName)) {
-						if (tDAO.doInsert(team)) {
-							path = request.getContextPath()
-									+ "/Front_End/Team_Apply/team_regist_success.jsp";
-							// V1.0 以后版本可能提供上传Logo注册，即多一步跳转。
-							// path = request.getContextPath() +
-							// "/Front_End/Team_Apply/team_logo_upload.jsp?tId="
-							// + tId;
-						} else {
-							System.out.println("注册失败！");
-							path = pathF;
+						if(tDAO.doSelectPlayerId(Integer.parseInt(request.getParameter("pId1")))){
+							if (tDAO.doInsert(team)) {
+								path = request.getContextPath()
+										+ "/Front_End/Team_Apply/team_regist_success.jsp";
+								// V1.0 以后版本可能提供上传Logo注册，即多一步跳转。
+								// path = request.getContextPath() +
+								// "/Front_End/Team_Apply/team_logo_upload.jsp?tId="
+								// + tId;
+							} else {
+								System.out.println("注册失败！");
+								path = pathF;
+							}
+						}else{
+							path = pathF +"?e=906";
 						}
 					} else {
 						path = pathF + "?e=905";

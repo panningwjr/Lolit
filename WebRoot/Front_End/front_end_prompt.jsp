@@ -29,6 +29,10 @@
 </head>
 
 <body>
+	<%
+		int eCodes = Integer.parseInt(request.getParameter("e"));
+		String eRemind = "";
+	%>
 	<div id="panel_div" class="bg_1"></div>
 	<article class="prompt_panel shadow_b">
 
@@ -36,9 +40,47 @@
 			onclick="returnPage()"></button>
 		<section class="prompt_bg">
 			<header>啊呀，操作怎么没有成功呢？</header>
-			<br> <br> <br>
+			<br>
+			<%
+				switch (eCodes) {
+				case 800:
+					eRemind = "队伍验证失败!";
+					break;
+				case 801:
+					eRemind = "队伍抽签失败!";
+					break;
+				case 802:
+					eRemind = "已经抽签!";
+					break;
+				case 900:
+					eRemind = "注册异常!";
+					break;
+				case 901:
+					eRemind = "队伍名为空!";
+					break;
+				case 902:
+					eRemind = "团队口令为空!";
+					break;
+				case 903:
+					eRemind = "代表院系年级不能为空!";
+					break;
+				case 905:
+					eRemind = "队伍名称已经存在!";
+					break;
+				case 906:
+					eRemind = "学号已经存在!";
+					break;
+				case 920:
+					eRemind = "头像上传失败!";
+					break;
+				case 921:
+					eRemind = "文件传输异常!";
+					break;
+				}
+			%>
+			<%=eRemind%>
+			<br> <br>
 		</section>
-		>
 	</article>
 </body>
 </html>

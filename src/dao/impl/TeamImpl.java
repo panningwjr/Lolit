@@ -45,7 +45,24 @@ public class TeamImpl implements TeamDAO {
 		} catch (Exception e) {
 			throw e;
 		}
+	}
 
+	public boolean doSelectPlayerId(int pId) throws Exception {
+
+		String sql = "select * from Lolit.player where pId = '" + pId + "' ";// 查看队长学号是否已经存在
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				System.out.println("学号已经存在");
+				return false;
+			} else {
+				return true;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	public void closeDBC3() throws Exception {
@@ -468,4 +485,5 @@ public class TeamImpl implements TeamDAO {
 		}
 		return rankCount;
 	}
+
 }
