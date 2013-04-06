@@ -40,20 +40,22 @@ public class DoRegist extends HttpServlet {
 		String path = null;
 
 		TeamDAO tDAO = null;
- 
-		HttpSession se = request.getSession();
-		String rand = (String) se.getAttribute("rand");  //		获取session中德验证码
-        String input = request.getParameter("rand");   //获取输入的验证码
-        //验证验证码
-        if (rand.equals(input)) {  
-           
-                } else {
-                	System.out.println("验证码不匹配");
-                	path = pathF + "?e=906";
-                	response.sendRedirect(path);
-                }  
 
 		try {
+
+			// 验证码部分
+			// ---------------------------------------------------------------------------------------
+			HttpSession se = request.getSession();
+			String rand = (String) se.getAttribute("tCheckNum"); // 获取session中德验证码
+			String input = request.getParameter("tCheckNum"); // 获取输入的验证码
+			// 验证验证码
+			if (rand.equals(input)) {
+
+			} else {
+				System.out.println("验证码不匹配");
+				path = pathF + "?e=906";
+			}
+			// -----------------------------------------------------------------------------------------
 
 			tDAO = DAOFactory.getTeamDAOInstance();
 			// 获取team_tId
