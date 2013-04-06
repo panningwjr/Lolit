@@ -15,6 +15,9 @@ public interface TeamDAO {
 	
 	//验证队伍名是否已经存在
 	public boolean doSelectTeamName(String tName) throws Exception;
+	
+	//验证学号是否唯一
+	public boolean doSelectPlayerId(int pId) throws Exception;
 
 	// 参赛报名时向数据库插入数据
 	public boolean doInsert(Team team) throws Exception;
