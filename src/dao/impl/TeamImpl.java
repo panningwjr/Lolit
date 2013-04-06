@@ -45,7 +45,24 @@ public class TeamImpl implements TeamDAO {
 		} catch (Exception e) {
 			throw e;
 		}
+	}
 
+	public boolean doSelectPlayerId(int pId) throws Exception {
+
+		String sql = "select * from Lolit.player where pId = '" + pId + "' ";// 查看队长学号是否已经存在
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				System.out.println("学号已经存在");
+				return false;
+			} else {
+				return true;
+			}
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 
 	public void closeDBC3() throws Exception {
@@ -400,10 +417,9 @@ public class TeamImpl implements TeamDAO {
 	// 查看各学院报名人数
 	public List<Integer> doSelectForInstituteCount() throws Exception {
 		List<Integer> instituteCount = new ArrayList<Integer>();
-		String[] institute = { "%纺织学部", "%材料科学与工程学院", "%环境与化学工程学院", "%机械工程学院",
-				"%计算机科学与软件学院", "%电气工程与自动化学院", "%电子与信息工程学院", "%理学院", "%艺术与服装学院",
-				"%管理学院", "%经济学院", "%人文与法学院", "%外国语学院", "%应用技术学院、继续教育学院",
-				"%国际教育学院" };
+		String[] institute = { "%艺术服装", "%计算机软件", "%纺织", "%材料科学", "%环境化学",
+				"%机械工程", "%电气自动化", "%电子信息", "%理", "%管理", "%经济", "%人文与法",
+				"%外国语", "%应用技术", "%国际教育" };
 		String sql = "";
 
 		try {
@@ -426,20 +442,20 @@ public class TeamImpl implements TeamDAO {
 	// 查看各区报名人数
 	public List<Integer> getBelongAreaCount(List<Integer> instituteCount)
 			throws Exception {
-		// "0,纺织学部", "1,材料科学与工程学院", "2,环境与化学工程学院", "3,机械工程学院",
-		// "4,计算机科学与软件学院", "5,电气工程与自动化学院", "6,电子与信息工程学院", "7,理学院", "8,艺术与服装学院",
-		// "9,管理学院", "10,经济学院", "11,人文与法学院", "12,外国语学院", "13,应用技术学院、继续教育学院",
-		// "14,国际教育学院"
+
+		// 0%艺术服装 1%计算机软件 2%纺织 3%材料科学 4%环境化学
+		// 5%机械工程 6%电气自动化 7%电子信息 8%理 9%管理
+		// 10%经济 11%人文与法 12%外国语 13%应用技术 14%国际教育
 		List<Integer> areaCount = new ArrayList<Integer>();
 		int eastCount = 0, westCount = 0, northCount = 0;
-		eastCount = instituteCount.get(1) + instituteCount.get(2)
-				+ instituteCount.get(3) + instituteCount.get(5)
-				+ instituteCount.get(6) + instituteCount.get(8)
+		eastCount = instituteCount.get(3) + instituteCount.get(4)
+				+ instituteCount.get(5) + instituteCount.get(6)
+				+ instituteCount.get(7) + instituteCount.get(0)
 				+ instituteCount.get(14);
-		westCount = instituteCount.get(7) + instituteCount.get(9)
+		westCount = instituteCount.get(8) + instituteCount.get(9)
 				+ instituteCount.get(10) + instituteCount.get(11)
 				+ instituteCount.get(12);
-		northCount = instituteCount.get(0) + instituteCount.get(4);
+		northCount = instituteCount.get(2) + instituteCount.get(1);
 		areaCount.add(eastCount);
 		areaCount.add(westCount);
 		areaCount.add(northCount);
@@ -469,4 +485,5 @@ public class TeamImpl implements TeamDAO {
 		}
 		return rankCount;
 	}
+
 }

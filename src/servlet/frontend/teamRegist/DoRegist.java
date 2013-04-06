@@ -40,20 +40,22 @@ public class DoRegist extends HttpServlet {
 		String path = null;
 
 		TeamDAO tDAO = null;
- 
-		HttpSession se = request.getSession();
-		String rand = (String) se.getAttribute("rand");  //		获取session中德验证码
-        String input = request.getParameter("rand");   //获取输入的验证码
-        //验证验证码
-        if (rand.equals(input)) {  
-           
-                } else {
-                	System.out.println("验证码不匹配");
-                	path = pathF + "?e=906";
-                	response.sendRedirect(path);
-                }  
 
 		try {
+
+			// 验证码部分
+			// ---------------------------------------------------------------------------------------
+			HttpSession se = request.getSession();
+			String rand = (String) se.getAttribute("tCheckNum"); // 获取session中德验证码
+			String input = request.getParameter("tCheckNum"); // 获取输入的验证码
+			// 验证验证码
+			if (rand.equals(input)) {
+
+			} else {
+				System.out.println("验证码不匹配");
+				path = pathF + "?e=907";
+			}
+			// -----------------------------------------------------------------------------------------
 
 			tDAO = DAOFactory.getTeamDAOInstance();
 			// 获取team_tId
@@ -152,16 +154,20 @@ public class DoRegist extends HttpServlet {
 			} else {
 				try {
 					if (tDAO.doSelectTeamName(tName)) {
-						if (tDAO.doInsert(team)) {
-							path = request.getContextPath()
-									+ "/Front_End/Team_Apply/team_regist_success.jsp";
-							// V1.0 以后版本可能提供上传Logo注册，即多一步跳转。
-							// path = request.getContextPath() +
-							// "/Front_End/Team_Apply/team_logo_upload.jsp?tId="
-							// + tId;
-						} else {
-							System.out.println("注册失败！");
-							path = pathF;
+						if(tDAO.doSelectPlayerId(Integer.parseInt(request.getParameter("pId1")))){
+							if (tDAO.doInsert(team)) {
+								path = request.getContextPath()
+										+ "/Front_End/Team_Apply/team_regist_success.jsp";
+								// V1.0 以后版本可能提供上传Logo注册，即多一步跳转。
+								// path = request.getContextPath() +
+								// "/Front_End/Team_Apply/team_logo_upload.jsp?tId="
+								// + tId;
+							} else {
+								System.out.println("注册失败！");
+								path = pathF;
+							}
+						}else{
+							path = pathF +"?e=906";
 						}
 					} else {
 						path = pathF + "?e=905";
