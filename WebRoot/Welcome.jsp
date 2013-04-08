@@ -45,29 +45,25 @@
 				<div class="pic pic-1"></div>
 				<div class="txt-warp">
 					<div class="txt txt-1"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-2"></div>
 				<div class="pic pic-2"></div>
 				<div class="txt-warp">
 					<div class="txt txt-2"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-3"></div>
 				<div class="pic pic-3"></div>
 				<div class="txt-warp">
 					<div class="txt txt-3"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-4"></div>
 				<div class="pic pic-4"></div>
 				<div class="txt-warp">
 					<div class="txt txt-4"></div>
-				</div>
-			</li>
+				</div></li>
 		</ul>
 		<div class="count">
 			<ul class="num">
@@ -83,18 +79,20 @@
 		<ul class="wel_ul">
 			<li class="wel_li1">竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
 			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
-			<li class="wel_li3"><object>
+			<li class="wel_li3" onclick="gotoApplyPage()">
+				<object>
 					<param name="wmode" value="Opaque">
 					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
-				</object></li>
-
+				</object>
+			</li>
 			<li class="wel_li4">
 				<section class="last_apply">
+					<label>队伍名</label><label>代表学院</label><label>报名时间</label>
 					<ul id="idcontent">
 						<%
 							for (int i = 0; i < tList.size(); i++) {
-								Team team = tList.get(i);
-								String date = String.valueOf(team.gettId());
+												Team team = tList.get(i);
+												String date = String.valueOf(team.gettId());
 						%>
 						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
 						</li>
@@ -103,7 +101,9 @@
 						%>
 					</ul>
 				</section>
-			</li>
+				<section class="last_apply_ps">
+					<label><%=tList.size()%></label><span>支队伍已经参与报名！</span>
+				</section></li>
 			<li></li>
 			<li style="height: 50px;"></li>
 		</ul>
@@ -175,6 +175,7 @@
 			last2.className = 'idcontent_hidden';
 		}, 3000);
 	})();
+	
 </script>
 
 </html>

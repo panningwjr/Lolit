@@ -25,6 +25,8 @@
 
 </head>
 
+
+
 <body onresize="bgWidth()" onload="bgWidth()">
 	<div id="panel_div" class="bg_1"></div>
 
@@ -45,17 +47,18 @@
 				</header>
 
 				<ul class="ul_form_a">
-					<li><h4>队伍信息 Team Form</h4>
-					</li>
+					<li><h4>队伍信息 Team Form</h4></li>
 					<li class="li_form"><label for="tName" class="label_reg">队伍名称:</label><input
-						type="text" id="tName" name="tName" placeholder="如：大神联盟"></li>
+						type="text" id="tName" name="tName" placeholder="如：大神联盟">
+					</li>
 					<li class="li_form"><label for="tPwd1" class="label_reg">队伍口令:</label><input
 						type="password" id="tPwd1" name="tPwd1"
-						placeholder="6-18位英文、数字或下划线"></li>
+						placeholder="6-18位英文、数字或下划线">
+					</li>
 					<li class="li_form"><label for="tPwd2" class="label_reg">确认口令:</label><input
 						type="password" id="tPwd2" name="tPwd2" placeholder="重复">
 					</li>
-					
+
 					<br>
 					<li class="li_form"><label for="tGrade" class="label_reg">代表院系年级:</label><select
 						id="tGrade" name="tGrade">
@@ -110,7 +113,8 @@
 							<option value="诺克萨斯">诺克萨斯</option>
 							<option value="德玛西亚">德玛西亚</option>
 							<option value="祖安">祖安</option>
-					</select></li>
+					</select>
+					</li>
 					<li class="li_form"><label for="pRank1" class="label_reg">队伍rank值:</label><input
 						type="text" id="pRank1" name="pRank1" placeholder="可填队长rank来代表本队">
 					</li>
@@ -128,8 +132,7 @@
 
 			<section class="register_player shadow_b">
 				<ul class="ul_form_a">
-					<li class="li_form"><h4>队长 Captain</h4>
-					</li>
+					<li class="li_form"><h4>队长 Captain</h4></li>
 					<br>
 					<li class="li_form"><label for="pId1" class="label_reg">学号:</label><input
 						type="text" id="pId1" name="pId1" placeholder="xxxxxx-xxxx">
@@ -144,6 +147,13 @@
 					</li>
 					<li class="li_form"><label for="tPhone" class="label_reg">联系电话:</label><input
 						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx">
+					</li>
+					<br><br>
+					<li class="li_form checkNum"><label for="tCheckNum" class="label_reg">验证码:</label><input
+						type="text" id="tCheckNum" name="tCheckNum" maxlength=4><img
+						id="codeImg" border=0
+						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp"><a
+						href="javascript:void(0)" onclick="reloadCheckCode()">换一张</a>
 					</li>
 				</ul>
 				<aside class="aside_ps">
@@ -165,7 +175,17 @@
 		</form>
 	</article>
 	<footer class="Footer"> </footer>
+
+
 </body>
+
+<!--GR刷新验证码  -->
+<script language='JavaScript'>
+	function reloadCheckCode() {
+		document.getElementById("codeImg").src = "/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp?"
+				+ Math.random();
+	}
+</script>
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>

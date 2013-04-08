@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import vo.Player;
 import vo.Team;
@@ -41,6 +42,20 @@ public class DoRegist extends HttpServlet {
 		TeamDAO tDAO = null;
 
 		try {
+
+			// 验证码部分
+			// ---------------------------------------------------------------------------------------
+			HttpSession se = request.getSession();
+			String rand = (String) se.getAttribute("tCheckNum"); // 获取session中德验证码
+			String input = request.getParameter("tCheckNum"); // 获取输入的验证码
+			// 验证验证码
+			if (rand.equals(input)) {
+
+			} else {
+				System.out.println("验证码不匹配");
+				path = pathF + "?e=907";
+			}
+			// -----------------------------------------------------------------------------------------
 
 			tDAO = DAOFactory.getTeamDAOInstance();
 			// 获取team_tId
