@@ -31,6 +31,7 @@
 	.shadow_a					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
 	.shadow_b					{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
 	.shadow_c					{ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); }
+	.shadow_a1					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
 
 	.radius_a					{ -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 
@@ -83,19 +84,23 @@
 	.wel_apply					{ width: 100%; height: 190px; background-color: #000; position: absolute; z-index: 1000; top: 470px; }
 	
 	.wel_ul						{ width: 800px; height: 50px; color: #fedfaf; margin: 40px auto; text-align: center; }
-	.wel_li1					{ position: absolute; left: 50%; margin: 0 0 0 -200px; }
-	.wel_li2					{ height: 30px; color: #fedfaf; text-align: center; z-index: 200; background-color: rgba(0,0,0,0); position: absolute; left: 50%; margin: 13px 0 0 -150px; }
+	.wel_li1					{ position: absolute; left: 50%; margin: -5px 0 0 -200px; }
+	.wel_li2					{ height: 30px; color: #fedfaf; text-align: center; z-index: 200; background-color: rgba(0,0,0,0); position: absolute; left: 50%; margin: 10px 0 0 -150px; }
 	.wel_ul em 					{ font-size: 2em; vertical-align: -9px; }
 	
 	.wel_li3					{ z-index: -200; }
 	.wel_ul li object	 		{ z-index: -200; }
-	.wel_ul li embed			{ width: 260px; height: 250px; margin: -23px auto; z-index: -200;  }
+	.wel_ul li embed			{ width: 280px; height: 250px; margin: -23px auto; z-index: -200;  }
 	
-	.wel_li4	    			{ width: 200px; height: 100px; margin: 25px 0 0 0; -webkit-box-shadow: 0 0 10px rgba(96, 96, 96, 1); -moz-box-shadow: 0 0 10px rgba(96, 96, 96, 1); box-shadow: 0 0 10px rgba(48, 48, 48, 1); }
-	.last_apply					{ width: 400px; height: 300px; padding: 10px 0 0 10px; background-color: #000; }
+	.wel_li4	    			{ width: 800px; height: 100px; margin: 25px 0 0 0; -webkit-box-shadow: 0 0 10px rgba(96, 96, 96, 1); -moz-box-shadow: 0 0 10px rgba(96, 96, 96, 1); box-shadow: 0 0 10px rgba(48, 48, 48, 1); }
+	.last_apply					{ width: 400px; height: 300px; padding: 10px 0 0 10px; background-color: #000; text-align: left; float: left; }
+	.last_apply_ps				{ float: left; }
+	.last_apply_ps label		{ font: normal 3em/1.2 Tahoma,"simsun","Microsoft Yahei"; vertical-align: -2px; }
 	
 	#idcontent li				{ width: 400px; height: 30px; text-align: left; }
-	#idcontent li label			{ width: 115px; display: inline-block; }
+	#idcontent li label			{ width: 115px; display: inline-block; margin: 0 0 10px 0; color: #fedfaf; text-indent: 0em; }
+	.last_apply	label 			{ width: 115px; display: inline-block; margin: 0 0 10px 0; color: #f99534; text-indent: 1em; }
+	
 	
 	
 	
@@ -152,6 +157,9 @@
 	.label_reg					{ width: 120px; line-height: 30px; display: inline-block; text-align: right; margin: 0 20px 0 0; }
 	.aside_ps					{ width: 250px; height: 250px; margin: 20px 20px 20px 50px; padding: 10px 0 0 20px; float: right; border-left: 1px solid white; }
 	li label     				{ margin: auto 3px auto 3px; }
+	
+	.checkNum input[type=text]	{ width: 130px!important; }
+	.checkNum img				{ margin: 0 0 0 5px; vertical-align: -5px; }
 
 	input[type=checkbox]		{ vertical-align: middle; }
 	input[type=text],
@@ -173,6 +181,20 @@
 
 	.apply_suc_panel			{ width: 840px; height: 500px; margin: 105px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
 	.apply_suc_bg				{ background: url(/Lolit/images/tianshi1.png) no-repeat; width: 840px; height: 500px; position: absolute; margin: -100px 0 0 230px; }
+	
+	.apply_suc_panel header 		{ margin: 0 0 0 30px; }
+	.congra							{ width: 200px; margin: 80px 0 0 0; }
+	.apply_suc_panel header label	{ width: 200px; height: 25px; background-color: #ffeeee; display: inline-block; padding: 5px 0 0 5px; text-align: center; font-size: 1.1em; }
+	.apply_suc_panel header span	{ width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px; text-align: center; }
+	
+	.apply_suc_panel header aside	{ height: 25px; padding: 5px 0 0 5px; color: #db7b17; margin: 50px 0 0 0; }
+	.apply_step	section				{ width: 180px; height: 160px; float: left; margin: 0 25px 0 0; background-color: #ffeeee; text-align: center; padding: 0 10px 0 10px; }
+	.apply_step	section h2			{ height: 50px; padding: 20px 0 0 0; color: #333; }
+	.step_done						{ background-color: rgba(227,227,227,1)!important; }
+	
+	.skin_list					{ width: 100%; margin: 25px auto 50px auto; background-color: rgba(0,0,0,0.7); }
+	.skin_list div				{ width: 860px; margin: 0 auto; }
+	.skin_list img 				{ width: 410px; margin: 10px 5px 0 10px; }
 
 /* lot
 -------------------------------------------------------------------*/
