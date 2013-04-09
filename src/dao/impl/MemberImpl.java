@@ -38,15 +38,20 @@ public class MemberImpl implements MemberDAO {
 		}
 	}
 
+	// ºóÌ¨µÇÂ¼
 	public boolean doSelectForSignIn(Member member) throws Exception {
+		String mName = member.getmAcName();
+		String mPwd = member.getmPwd();
+		int mRole = member.getmRole();
+		String sql = "";
 
 		try {
-			String sql = "SELECT mPwd FROM member WHERE mAcName = '"
-					+ member.getmAcName() + "'";
+			sql = "SELECT mPwd FROM lolit.member WHERE mAcName = '" + mName
+					+ "' AND mRole <= '" + mRole + "'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				if(rs.getString("mPwd").equals(member.getmPwd())){
+				if (rs.getString("mPwd").equals(mPwd)) {
 					return true;
 				}
 			}
