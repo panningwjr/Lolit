@@ -1,5 +1,34 @@
-// screen
+// 浏览器支持
 //--------------------------------------------------------------------
+function browserInfo() {
+	alert(navigator.userAgent.indexOf("MSIE 10.0") > 0 ? 'IE10'
+			: 'other version');
+	alert(navigator.userAgent);
+}
+
+function goWebsite() {
+	var ieVer = 0;
+	ieVer = navigator.userAgent.indexOf("MSIE 9.0") > 0 ? 9 : ieVer;
+	ieVer = navigator.userAgent.indexOf("MSIE 8.0") > 0 ? 8 : ieVer;
+	ieVer = navigator.userAgent.indexOf("MSIE 7.0") > 0 ? 7 : ieVer;
+	ieVer = navigator.userAgent.indexOf("MSIE 6.0") > 0 ? 6 : ieVer;
+	switch (ieVer) {
+	case 0:
+		window.location.href = "/Lolit/";
+		break;
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+		alert(ieVer);
+		break;
+	default:
+		break;
+	}
+}
+
+// screen
+// --------------------------------------------------------------------
 function bgWidth() {
 	var bodyWidth = document.body.clientWidth;
 	var bgdiv = document.getElementById("panel_div");
@@ -74,7 +103,7 @@ function usetLogo(flag) {
 // img.src不能为#
 function checktLogo() {
 	var form = document.getElementById("TLogoUpload");
-	if(logoFlag == 1) {
+	if (logoFlag == 1) {
 		form.action = "frontend/teamRegist/TLogoUpload"
 	} else {
 		form.action = "";

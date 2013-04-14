@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileUploadException;
 
-import dao.interfaces.TeamDAO;
-import dao.utils.DAOFactory;
 import dao.utils.LogoUpload;
 
 public class TLogoUpload extends HttpServlet {
@@ -37,12 +35,12 @@ public class TLogoUpload extends HttpServlet {
 		ServletContext context = getServletContext();
 		String filepath = context.getRealPath("images") + "\\tLogo\\";
 		String url = "/Front_End/front_end_prompt.jsp";
-		TeamDAO tDAO = null;
+		//TeamDAO tDAO = null;
 
 		try {
 
 			LogoUpload tlogo = new LogoUpload();
-			tDAO = DAOFactory.getTeamDAOInstance();
+			//tDAO = DAOFactory.getTeamDAOInstance();
 
 			if (tlogo.update(request, context, filepath)) {
 				// tDAO.

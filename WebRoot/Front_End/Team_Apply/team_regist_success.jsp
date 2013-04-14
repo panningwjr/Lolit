@@ -24,13 +24,13 @@
 
 </head>
 
-<body onresize="bgWidth()" onload="bgWidth()">
+<body>
 	<div id="panel_div" class="bg_1"></div>
 	<article class="apply_suc_panel shadow_b">
 
 		<section class="apply_suc_bg"></section>
 		<header>
-			<img src="images/congratulation.png" class="congra"><br> <label>大神联盟</label><br>
+			<img src="images/apply/congratulation.png" class="congra"><br> <label>大神联盟</label><br>
 			<span>10级 计算机软件学院</span><span>队长：G.U.</span><br>
 			<aside>非常感谢您的耐心注册，并恭喜您的队伍已完成第一步报名任务！</aside>
 			<div class="apply_step">
