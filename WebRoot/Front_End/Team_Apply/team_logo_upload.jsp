@@ -25,7 +25,7 @@
 
 </head>
 
-<body onresize="bgWidth()" onload="bgWidth()">
+<body>
 	<div id="panel_div" class="bg_1"></div>
 
 	<article class="register_article">

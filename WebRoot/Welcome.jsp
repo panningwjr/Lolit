@@ -45,25 +45,29 @@
 				<div class="pic pic-1"></div>
 				<div class="txt-warp">
 					<div class="txt txt-1"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-2"></div>
 				<div class="pic pic-2"></div>
 				<div class="txt-warp">
 					<div class="txt txt-2"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-3"></div>
 				<div class="pic pic-3"></div>
 				<div class="txt-warp">
 					<div class="txt txt-3"></div>
-				</div></li>
+				</div>
+			</li>
 			<li>
 				<div class="bg bg-4"></div>
 				<div class="pic pic-4"></div>
 				<div class="txt-warp">
 					<div class="txt txt-4"></div>
-				</div></li>
+				</div>
+			</li>
 		</ul>
 		<div class="count">
 			<ul class="num">
@@ -76,23 +80,31 @@
 	</div>
 
 	<section class="wel_apply shadow_b">
+
 		<ul class="wel_ul">
 			<li class="wel_li1">竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
-			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！</li>
-			<li class="wel_li3" onclick="gotoApplyPage()">
-				<object>
-					<param name="wmode" value="Opaque">
-					<embed src="/Lolit/images/welcome/apply_button.swf"></embed>
-				</object>
+			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！<img
+				src="images/stamp.png" class="stamp">
 			</li>
+			<li class="wel_li3" onclick="gotoApplyPage()"><object>
+					<param name="wmode" value="Opaque">
+					<embed src="images/welcome/apply_button.swf" wmode="Opaque"></embed>
+				</object></li>
+			<img src="images/title1.png" class="apply_bt_ps">
+		</ul>
+	</section>
+	<section class="apply_bg">
+		<ul class="wel_ul2">
 			<li class="wel_li4">
 				<section class="last_apply">
-					<label>队伍名</label><label>代表学院</label><label>报名时间</label>
+					<div class="wel_mengban">
+						<label>队伍名</label><label>代表学院</label><label>报名时间</label>
+					</div>
 					<ul id="idcontent">
 						<%
 							for (int i = 0; i < tList.size(); i++) {
-												Team team = tList.get(i);
-												String date = String.valueOf(team.gettId());
+								Team team = tList.get(i);
+								String date = String.valueOf(team.gettId());
 						%>
 						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
 						</li>
@@ -102,9 +114,13 @@
 					</ul>
 				</section>
 				<section class="last_apply_ps">
-					<label><%=tList.size()%></label><span>支队伍已经参与报名！</span>
-				</section></li>
-			<li></li>
+					<br> <label><%=tList.size()%></label><br> <span>支队伍已经参与报名！</span><br>
+					<img src="images/5player.png">
+				</section>
+			</li>
+			<li class="wel_li5"><img src="images/reward1.png">
+				<section class="warm_up shadow_b"></section> <img
+				src="images/title2.png" class="tongkuai"></li>
 			<li style="height: 50px;"></li>
 		</ul>
 	</section>
@@ -112,7 +128,6 @@
 </body>
 
 <script src="<%=request.getContextPath()%>/js/global.js"></script>
-<script src="<%=request.getContextPath()%>/js/back_end.js"></script>
 <script src="<%=request.getContextPath()%>/js/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript">
@@ -165,17 +180,19 @@
 		var aLi = $de('idcontent').getElementsByTagName('li');
 		aLi[aLi.length - 1].className = 'idcontent_hidden';
 		aLi[aLi.length - 2].className = 'idcontent_hidden';
+		aLi[aLi.length - 3].className = 'idcontent_hidden';
 		setInterval(function() {
 			var firstLi = aLi[aLi.length - 1];
 			var last1 = aLi[aLi.length - 2];
-			var last1 = aLi[aLi.length - 3];
+			var last2 = aLi[aLi.length - 3];
+			var last3 = aLi[aLi.length - 4];
 			$de('idcontent').insertBefore(firstLi, aLi[0]);
 			firstLi.className = 'idcontent_chang';
 			last1.className = 'idcontent_hidden';
 			last2.className = 'idcontent_hidden';
-		}, 3000);
+			last3.className = 'idcontent_hidden';
+		}, 6000);
 	})();
-	
 </script>
 
 </html>
