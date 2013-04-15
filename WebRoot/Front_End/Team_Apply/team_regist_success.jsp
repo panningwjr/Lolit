@@ -24,15 +24,43 @@
 
 </head>
 
-<body onresize="bgWidth()" onload="bgWidth()">
+<body>
 	<div id="panel_div" class="bg_1"></div>
 	<article class="apply_suc_panel shadow_b">
 
-		<button class="return_button" id="return_button"
-			onclick="returnPage()"></button>
 		<section class="apply_suc_bg"></section>
-		<header>恭喜</header>
-		<br> <br> <br>
+		<header>
+			<img src="images/apply/congratulation.png" class="congra"><br> <label>大神联盟</label><br>
+			<span>10级 计算机软件学院</span><span>队长：G.U.</span><br>
+			<aside>非常感谢您的耐心注册，并恭喜您的队伍已完成第一步报名任务！</aside>
+			<div class="apply_step">
+				<section class="shadow_a1 radius_a step_done">
+					<h2>1</h2>
+					<p>已完成</p>
+				</section>
+				<section class="shadow_a1 radius_a">
+					<h2>2</h2>
+					<p>完善队伍信息，赛组委将与您的队伍取得联系，并审核信息，以确保赛事有序地进行。</p>
+				</section>
+				<section class="shadow_a1 radius_a">
+					<h2>3</h2>
+					<p>
+						参加并完成2场测试分段赛，<br>领取皮肤！
+					</p>
+				</section>
+			</div>
+		</header>
+
+	</article>
+
+	<article class="skin_list shadow_a">
+		<div>
+		<img src="images/hero_skin/45_1.jpg" class="shadow_b"> <img
+			src="images/hero_skin/39_1.jpg" class="shadow_b"> <img
+			src="images/hero_skin/39_2.jpg" class="shadow_b"> <img
+			src="images/hero_skin/23_1.jpg" class="shadow_b"> <img
+			src="images/hero_skin/23_2.jpg" class="shadow_b">
+		</div>
 	</article>
 </body>
 
