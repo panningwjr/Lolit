@@ -29,22 +29,56 @@
 
 <body
 	style="background: url(/Lolit/images/bg_black.png) center top repeat-y;">
-	<div style="margin: 250px auto; width: 220px; text-align: center;">
+	<div class="broswer_logo">
+		<img src="images/chrome_logo.png" alt="" style="display: none;" /><img
+			src="images/firefox_logo.png" alt="" style="display: none;" /><img
+			src="images/opera_logo.png" alt="" style="display: none;" /><img
+			src="images/liebao_logo.png" alt="" style="display: none;" /><img
+			src="images/ie10_logo.png" alt="" style="display: none;" />
+	</div>
+	<div class="go_panel">
+
 		<img src="images/lolit.png" width="210px">
 		<object>
 			<param name="wmode" value="Opaque">
-			<embed src="images/welcome/loading.swf" width="60px" height="60"
-				style="margin: 70px 0 0 -5px;"></embed>
+			<embed src="images/welcome/loading.swf"
+				type="application/x-shockwave-flash"></embed>
 		</object>
+		<div class="go_ps1" id="go_ps1" style="display: none;">
+			<div>
+				公益提示：您的浏览器版本过低，已经严重影响上网速度，为了您更好的上网体验<br />我们建议您切换到浏览器的高速模式
+				或使用上面推荐的浏览器
+			</div>
+			<button class="go_ignore_bt">
+				忽略<br />并直接报名
+			</button>
+		</div>
 		<div>
 </body>
 
 <script src="<%=request.getContextPath()%>/js/global.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript">
 	window.onload = function() {
 		setTimeout("goWebsite()", 3500);
 	};
+
+	$(document).ready(function() {
+		setTimeout("go_psFageIn()", 3500);
+		setTimeout("logoFageIn(1)", 7500);
+		setTimeout("logoFageIn(2)", 8000);
+		setTimeout("logoFageIn(3)", 8500);
+		setTimeout("logoFageIn(4)", 9000);
+		setTimeout("logoFageIn(5)", 9500);
+	});
+	
+	function logoFageIn(n) {
+		$(".broswer_logo img:nth-child(" + n + ")").fadeIn(3000);
+	}
+	function go_psFageIn() {
+		$("#go_ps1").fadeIn(1000);
+	}
 </script>
 
 </html>

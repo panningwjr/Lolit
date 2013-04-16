@@ -20,7 +20,6 @@ function goWebsite() {
 	case 7:
 	case 8:
 	case 9:
-		alert(ieVer);
 		break;
 	default:
 		break;
