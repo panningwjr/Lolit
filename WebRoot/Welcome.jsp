@@ -45,36 +45,32 @@
 				<div class="pic pic-1"></div>
 				<div class="txt-warp">
 					<div class="txt txt-1"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-2"></div>
 				<div class="pic pic-2"></div>
 				<div class="txt-warp">
 					<div class="txt txt-2"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-3"></div>
 				<div class="pic pic-3"></div>
 				<div class="txt-warp">
 					<div class="txt txt-3"></div>
-				</div>
-			</li>
+				</div></li>
 			<li>
 				<div class="bg bg-4"></div>
 				<div class="pic pic-4"></div>
 				<div class="txt-warp">
 					<div class="txt txt-4"></div>
-				</div>
-			</li>
+				</div></li>
 		</ul>
 		<div class="count">
 			<ul class="num">
-				<li class="on">1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
+				<li class="on" onclick="d(),c(1)">1</li>
+				<li onclick="d(),c(4)">2</li>
+				<li onclick="d(),c(3)">3</li>
+				<li onclick="d(),c(2)">4</li>
 			</ul>
 		</div>
 	</div>
@@ -84,12 +80,12 @@
 		<ul class="wel_ul">
 			<li class="wel_li1">竞赛 社交 直播 周边活动等全方位娱乐新体验，工大英雄联盟玩家的狂欢Party！</li>
 			<li class="wel_li2">完成3个报名步骤即可获得可选炫酷英雄皮肤！<em>100%</em>！<img
-				src="images/stamp.png" class="stamp">
-			</li>
+				src="images/stamp.png" class="stamp"></li>
 			<li class="wel_li3" onclick="gotoApplyPage()"><object>
 					<param name="wmode" value="Opaque">
 					<embed src="images/welcome/apply_button.swf" wmode="Opaque"></embed>
-				</object></li>
+				</object>
+			</li>
 			<img src="images/title1.png" class="apply_bt_ps">
 		</ul>
 	</section>
@@ -103,8 +99,8 @@
 					<ul id="idcontent">
 						<%
 							for (int i = 0; i < tList.size(); i++) {
-								Team team = tList.get(i);
-								String date = String.valueOf(team.gettId());
+																Team team = tList.get(i);
+																String date = String.valueOf(team.gettId());
 						%>
 						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
 						</li>
@@ -116,11 +112,11 @@
 				<section class="last_apply_ps">
 					<br> <label><%=tList.size()%></label><br> <span>支队伍已经参与报名！</span><br>
 					<img src="images/5player.png">
-				</section>
-			</li>
+				</section></li>
 			<li class="wel_li5"><img src="images/reward1.png">
 				<section class="warm_up shadow_b"></section> <img
-				src="images/title2.png" class="tongkuai"></li>
+				src="images/title2.png" class="tongkuai">
+			</li>
 			<li style="height: 50px;"></li>
 		</ul>
 	</section>
@@ -131,46 +127,65 @@
 <script src="<%=request.getContextPath()%>/js/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript">
+	var j = 1;
+	var timeoutProcess;
 	$(function() {
-		var j = 4;
-		a(4);
-		setInterval(function() {
-			b(j);
-			j--;
-			var arr = [ 0, 3, 2, 1, 0 ];
-			$(".num li").removeClass("on").eq(arr[j]).addClass("on");
-			console.log(j + ":::" + arr[j]);
-		}, 8000)
-		function a(i) {
-			$(".bg-" + i).addClass("bg-" + i + "-lay");
-			$(".pic-" + i).addClass("pic-" + i + "-lay");
-			$(".txt-" + i).addClass("txt-" + i + "-lay");
+		c(j);
+	});
+	function c(i) {
+		j = i;
+		b(j);
+		j--;
+		var arr = [ 0, 3, 2, 1, 0 ];
+		$(".num li").removeClass("on").eq(arr[j]).addClass("on");
+		console.log(j + ":::" + arr[j]);
+		timeoutProcess = setTimeout("c(" + j + ")", 7000);
+	}
+	function d() {
+		clearTimeout(timeoutProcess);
+		$(".bg-1").removeClass("bg-1-lay");
+		$(".bg-2").removeClass("bg-2-lay");
+		$(".bg-3").removeClass("bg-3-lay");
+		$(".bg-4").removeClass("bg-4-lay");
+		$(".pic-1").removeClass("pic-1-lay");
+		$(".pic-2").removeClass("pic-2-lay");
+		$(".pic-3").removeClass("pic-3-lay");
+		$(".pic-4").removeClass("pic-4-lay");
+		$(".txt-1").removeClass("txt-1-lay");
+		$(".txt-2").removeClass("txt-2-lay");
+		$(".txt-3").removeClass("txt-3-lay");
+		$(".txt-4").removeClass("txt-4-lay");
+	}
+
+	function a(i) {
+		$(".bg-" + i).addClass("bg-" + i + "-lay");
+		$(".pic-" + i).addClass("pic-" + i + "-lay");
+		$(".txt-" + i).addClass("txt-" + i + "-lay");
+	}
+	function b(i) {
+		if (i < 2) {
+			$(".bg-" + i).addClass("bg-" + i + "-2-lay").removeClass(
+					"bg-" + i + "-lay");
+			$(".pic-" + i).addClass("pic-" + i + "-2-lay").removeClass(
+					"pic-" + i + "-lay");
+			$(".txt-" + i).addClass("txt-" + i + "-2-lay").removeClass(
+					"txt-" + i + "-lay");
+			a(4);
+			j = 5;
+		} else {
+			$(".bg-" + i).addClass("bg-" + i + "-2-lay").removeClass(
+					"bg-" + i + "-lay");
+			$(".pic-" + i).addClass("pic-" + i + "-2-lay").removeClass(
+					"pic-" + i + "-lay");
+			;
+			$(".txt-" + i).addClass("txt-" + i + "-2-lay").removeClass(
+					"txt-" + i + "-lay");
+			;
+			$(".bg-" + (i - 1)).addClass("bg-" + (i - 1) + "-lay");
+			$(".pic-" + (i - 1)).addClass("pic-" + (i - 1) + "-lay");
+			$(".txt-" + (i - 1)).addClass("txt-" + (i - 1) + "-lay");
 		}
-		function b(i) {
-			if (i < 2) {
-				$(".bg-" + i).addClass("bg-" + i + "-2-lay").removeClass(
-						"bg-" + i + "-lay");
-				$(".pic-" + i).addClass("pic-" + i + "-2-lay").removeClass(
-						"pic-" + i + "-lay");
-				$(".txt-" + i).addClass("txt-" + i + "-2-lay").removeClass(
-						"txt-" + i + "-lay");
-				a(4);
-				j = 5;
-			} else {
-				$(".bg-" + i).addClass("bg-" + i + "-2-lay").removeClass(
-						"bg-" + i + "-lay");
-				$(".pic-" + i).addClass("pic-" + i + "-2-lay").removeClass(
-						"pic-" + i + "-lay");
-				;
-				$(".txt-" + i).addClass("txt-" + i + "-2-lay").removeClass(
-						"txt-" + i + "-lay");
-				;
-				$(".bg-" + (i - 1)).addClass("bg-" + (i - 1) + "-lay");
-				$(".pic-" + (i - 1)).addClass("pic-" + (i - 1) + "-lay");
-				$(".txt-" + (i - 1)).addClass("txt-" + (i - 1) + "-lay");
-			}
-		}
-	})
+	}
 
 	//last team
 	function $de(id) {

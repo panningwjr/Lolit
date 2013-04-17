@@ -22,7 +22,7 @@ public class ErrorPromptFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		// 从cookie里面获取错误信息，分析后存入数据库
-		long ip = 0;
+		String ip = null;
 		int eNumber = 0;
 
 		TeamActionDAO teamActionDAO = null;

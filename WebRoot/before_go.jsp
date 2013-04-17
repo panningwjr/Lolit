@@ -21,27 +21,31 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
 </head>
 
 <body>
-	<%=request.getRemoteAddr()%>
+	<%
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		java.util.Date currentTime = new java.util.Date();//得到当前系统时间
+		String str_date1 = formatter.format(currentTime); //将日期时间格式化 
+		String str_date2 = currentTime.toString(); //将Date型日期时间转换成字符串形式
+
+		Cookie ip_cookie = new Cookie("ip", request.getRemoteAddr());
+		Cookie broswer_cookie = new Cookie("broswer",
+				request.getHeader("User-agent"));
+		Cookie time_cookie = new Cookie("time", str_date1);
+
+		response.addCookie(ip_cookie);
+		response.addCookie(broswer_cookie);
+		response.addCookie(time_cookie);
+	%>
 </body>
 
 <script src="<%=request.getContextPath()%>/js/jquery-1.7.1.min.js"></script>
 <script>
-	window.onload = addCookie('TeamAction','<%=request.getRemoteAddr()%>',9000);
-
-	function addCookie(objName, objValue, objHours) {//添加cookie
-		var str = objName + "=" + escape(objValue);
-		if (objHours > 0) {//为0时不设定过期时间，浏览器关闭时cookie自动消失
-			var date = new Date();
-			var ms = objHours * 3600 * 1000;
-			date.setTime(date.getTime() + ms);
-			str += "; expires=" + date.toGMTString();
-		}
-		document.cookie = str;
-		alert("添加cookie成功" + document.cookie);
+	window.onload = function() {
+		window.location.href = "/Lolit/Go.jsp";
 	}
 </script>
 </html>

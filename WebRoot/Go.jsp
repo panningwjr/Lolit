@@ -65,12 +65,12 @@
 	};
 
 	$(document).ready(function() {
-		setTimeout("go_psFageIn()", 3500);
-		setTimeout("logoFageIn(1)", 7500);
-		setTimeout("logoFageIn(2)", 8000);
-		setTimeout("logoFageIn(3)", 8500);
-		setTimeout("logoFageIn(4)", 9000);
-		setTimeout("logoFageIn(5)", 9500);
+		setTimeout("go_psFageIn()", 3600);
+		setTimeout("logoFageIn(1)", 8000);
+		setTimeout("logoFageIn(2)", 8500);
+		setTimeout("logoFageIn(3)", 9000);
+		setTimeout("logoFageIn(4)", 9500);
+		setTimeout("logoFageIn(5)", 10000);
 	});
 	
 	function logoFageIn(n) {
