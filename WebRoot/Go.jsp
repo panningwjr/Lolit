@@ -65,7 +65,7 @@
 	};
 
 	$(document).ready(function() {
-		setTimeout("go_psFageIn()", 3600);
+		setTimeout("go_psFageIn()", 3800);
 		setTimeout("logoFageIn(1)", 8000);
 		setTimeout("logoFageIn(2)", 8500);
 		setTimeout("logoFageIn(3)", 9000);
