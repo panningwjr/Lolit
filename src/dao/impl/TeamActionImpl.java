@@ -40,7 +40,7 @@ public class TeamActionImpl implements TeamActionDAO {
 	}
 
 	// 判断数据库中ip是否已经存在
-	public boolean doSelectTeamActionIp(long ip) throws Exception {
+	public boolean doSelectTeamActionIp(String ip) throws Exception {
 		String sql = "";
 		try {
 			sql = "SELECT * FROM lolit.teamaction WHERE ip = '" + ip + "'";
@@ -60,7 +60,7 @@ public class TeamActionImpl implements TeamActionDAO {
 	// 向数据库录入用户操作信息，第一次访问
 	public boolean doInsertTeamAction(TeamAction tAction) throws Exception {
 
-		long ip = tAction.getIp();
+		String ip = tAction.getIp();
 		String firstTime = tAction.getTime();
 		String firstBrowser = tAction.getBrowser();
 		int registCount = tAction.getRegistCount();
@@ -112,7 +112,7 @@ public class TeamActionImpl implements TeamActionDAO {
 	}
 
 	// 更新用户注册成功次数
-	public boolean doUpdateRegistSuccess(long ip) throws Exception {
+	public boolean doUpdateRegistSuccess(String ip) throws Exception {
 		String sql = "";
 		int registCount = 0;
 		int inta = 0;
@@ -128,7 +128,7 @@ public class TeamActionImpl implements TeamActionDAO {
 					+ "' WHERE ip = '" + ip + "' ";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
-			if(inta >0){
+			if (inta > 0) {
 				System.out.println("数据库注册次数更新成功！");
 				return true;
 			}
@@ -140,7 +140,7 @@ public class TeamActionImpl implements TeamActionDAO {
 	}
 
 	// 向数据库录入用户注册异常信息
-	public boolean doInsertErrorNumber(long ip, int eNumber) throws Exception {
+	public boolean doInsertErrorNumber(String ip, int eNumber) throws Exception {
 		int inta = 0;
 		String sql = "";
 		try {
