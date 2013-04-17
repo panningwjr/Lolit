@@ -2,17 +2,17 @@ package vo;
 
 public class TeamAction {
 
-	private long ip;
+	private String ip;
 	private String time;
 	private String browser;
 	private int visitCount;
 	private int registCount;
 
-	public long getIp() {
+	public String getIp() {
 		return ip;
 	}
 
-	public void setIp(long ip) {
+	public void setIp(String ip) {
 		this.ip = ip;
 	}
 

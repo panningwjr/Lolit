@@ -30,8 +30,8 @@
 
 		<section class="apply_suc_bg"></section>
 		<header>
-			<img src="images/apply/congratulation.png" class="congra"><br> <label>大神联盟</label><br>
-			<span>10级 计算机软件学院</span><span>队长：G.U.</span><br>
+			<img src="images/apply/congratulation.png" class="congra"><br>
+			<label><%=request.getAttribute("tName")%></label><br> <span><%=request.getAttribute("tBelonging")%></span><span>队长：<%=request.getAttribute("pName")%></span><br>
 			<aside>非常感谢您的耐心注册，并恭喜您的队伍已完成第一步报名任务！</aside>
 			<div class="apply_step">
 				<section class="shadow_a1 radius_a step_done">
@@ -55,11 +55,11 @@
 
 	<article class="skin_list shadow_a">
 		<div>
-		<img src="images/hero_skin/45_1.jpg" class="shadow_b"> <img
-			src="images/hero_skin/39_1.jpg" class="shadow_b"> <img
-			src="images/hero_skin/39_2.jpg" class="shadow_b"> <img
-			src="images/hero_skin/23_1.jpg" class="shadow_b"> <img
-			src="images/hero_skin/23_2.jpg" class="shadow_b">
+			<img src="images/hero_skin/45_1.jpg" class="shadow_b"> <img
+				src="images/hero_skin/39_1.jpg" class="shadow_b"> <img
+				src="images/hero_skin/39_2.jpg" class="shadow_b"> <img
+				src="images/hero_skin/23_1.jpg" class="shadow_b"> <img
+				src="images/hero_skin/23_2.jpg" class="shadow_b">
 		</div>
 	</article>
 </body>

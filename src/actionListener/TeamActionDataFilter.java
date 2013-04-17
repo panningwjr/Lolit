@@ -27,7 +27,7 @@ public class TeamActionDataFilter implements Filter {
 		System.out.println("---------");
 		int registCount = 0;
 		TeamAction tAction = new TeamAction();
-		long ip = tAction.getIp();
+		String ip = tAction.getIp();
 		TeamActionDAO teamActionDAO = null;
 		try {
 			teamActionDAO = DAOFactory.getTeamActionDAOInstance();
