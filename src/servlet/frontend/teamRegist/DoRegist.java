@@ -35,8 +35,7 @@ public class DoRegist extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		String pathF = request.getContextPath()
-				+ "/Front_End/front_end_prompt.jsp";
+		String pathF = "/Front_End/front_end_prompt.jsp";
 		String path = null;
 
 		TeamDAO tDAO = null;
@@ -157,11 +156,11 @@ public class DoRegist extends HttpServlet {
 						if (tDAO.doSelectPlayerId(Integer.parseInt(request
 								.getParameter("pId1")))) {
 							if (tDAO.doInsert(team)) {
-								path = request.getContextPath()
-										+ "/Front_End/Team_Apply/team_regist_success.jsp?tName="
-										+ tName + "&tBelonging=" + tBelonging
-										+ "&pName="
-										+ request.getParameter("pName");
+								path = "/Front_End/Team_Apply/team_regist_success.jsp";
+								request.setAttribute("tName", tName);
+								request.setAttribute("tBelonging", tBelonging);
+								request.setAttribute("pName",
+										request.getParameter("pName1"));
 								// V1.0 以后版本可能提供上传Logo注册，即多一步跳转。
 								// path = request.getContextPath() +
 								// "/Front_End/Team_Apply/team_logo_upload.jsp?tId="
@@ -189,7 +188,7 @@ public class DoRegist extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			response.sendRedirect(path);
+			request.getRequestDispatcher(path).forward(request, response);
 		}
 	}
 
