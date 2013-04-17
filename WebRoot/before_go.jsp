@@ -33,12 +33,14 @@
 
 		Cookie ip_cookie = new Cookie("ip", request.getRemoteAddr());
 		Cookie broswer_cookie = new Cookie("broswer",
-				request.getHeader("User-agent"));
+				request.getHeader("User-agent").replace(";", ""));
 		Cookie time_cookie = new Cookie("time", str_date1);
+		Cookie regist_count = new Cookie("registCount", "0");
 
 		response.addCookie(ip_cookie);
 		response.addCookie(broswer_cookie);
 		response.addCookie(time_cookie);
+		response.addCookie(regist_count);
 	%>
 </body>
 

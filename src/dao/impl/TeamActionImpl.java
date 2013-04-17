@@ -64,6 +64,7 @@ public class TeamActionImpl implements TeamActionDAO {
 		String firstTime = tAction.getTime();
 		String firstBrowser = tAction.getBrowser();
 		int registCount = tAction.getRegistCount();
+		int visitCount = 1;
 
 		int inta = 0;
 		String sql = "";
@@ -75,7 +76,7 @@ public class TeamActionImpl implements TeamActionDAO {
 					+ "','"
 					+ firstBrowser
 					+ "','"
-					+ registCount + "')";
+					+ visitCount + "','" + registCount + "')";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
@@ -89,16 +90,26 @@ public class TeamActionImpl implements TeamActionDAO {
 	}
 
 	// 向数据库录入用户操作信息，再次访问
-	public boolean doInsertTeamActionAgain(TeamAction tAction) throws Exception {
+	public boolean doUpdateTeamActionAgain(TeamAction tAction) throws Exception {
 
+		String ip = tAction.getIp();
 		String lastTime = tAction.getTime();
 		String lastBrowser = tAction.getBrowser();
+		int visitCount = 1;// 默认第一次访问
 
 		int inta = 0;
 		String sql = "";
 		try {
-			sql = "INSERT INTO lolit.teamaction (lastTime,lastBrowser) VALUES ('"
-					+ lastTime + "','" + lastBrowser + "')";
+			sql = "SELECT visitCount FROM lolit.teamaction WHERE ip = '" + ip
+					+ "'";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				visitCount = rs.getInt("visitCount") + 1;
+			}
+			sql = "UPDATE lolit.teamaction SET lastTime = '" + lastTime
+					+ "' , lastBrowser = '" + lastBrowser + "',visitCount = '"
+					+ visitCount + "'";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
