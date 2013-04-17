@@ -14,13 +14,12 @@ function goWebsite() {
 	ieVer = navigator.userAgent.indexOf("MSIE 6.0") > 0 ? 6 : ieVer;
 	switch (ieVer) {
 	case 0:
-		window.location.href = "/Lolit/";
+		window.location.href = "/Lolit/Welcome";
 		break;
 	case 6:
 	case 7:
 	case 8:
 	case 9:
-		alert(ieVer);
 		break;
 	default:
 		break;
