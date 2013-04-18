@@ -148,10 +148,11 @@
 					<li class="li_form"><label for="tPhone" class="label_reg">联系电话:</label><input
 						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx">
 					</li>
-					<br><br>
-					<li class="li_form checkNum"><label for="tCheckNum" class="label_reg">验证码:</label><input
-						type="text" id="tCheckNum" name="tCheckNum" maxlength=4><img
-						id="codeImg" border=0
+					<br>
+					<br>
+					<li class="li_form checkNum"><label for="tCheckNum"
+						class="label_reg">验证码:</label><input type="text" id="tCheckNum"
+						name="tCheckNum" maxlength=4><img id="codeImg" border=0
 						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp"><a
 						href="javascript:void(0)" onclick="reloadCheckCode()">换一张</a>
 					</li>

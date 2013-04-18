@@ -109,7 +109,7 @@ public class TeamActionImpl implements TeamActionDAO {
 			}
 			sql = "UPDATE lolit.teamaction SET lastTime = '" + lastTime
 					+ "' , lastBrowser = '" + lastBrowser + "',visitCount = '"
-					+ visitCount + "'";
+					+ visitCount + "' WHERE ip = '" + ip + "'";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {

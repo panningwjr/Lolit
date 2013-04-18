@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*,vo.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -30,10 +30,16 @@
 		java.util.Date currentTime = new java.util.Date();//得到当前系统时间
 		String str_date1 = formatter.format(currentTime); //将日期时间格式化 
 		String str_date2 = currentTime.toString(); //将Date型日期时间转换成字符串形式
+		String ip = "";
+		if (request.getHeader("x-forwarded-for") == null) {
+			ip = request.getRemoteAddr();
+		} else {
+			ip = request.getHeader("x-forwarded-for");
+		}
 
-		Cookie ip_cookie = new Cookie("ip", request.getRemoteAddr());
-		Cookie broswer_cookie = new Cookie("broswer",
-				request.getHeader("User-agent").replace(";", ""));
+		Cookie ip_cookie = new Cookie("ip", ip);
+		Cookie broswer_cookie = new Cookie("broswer", request.getHeader(
+				"User-agent").replace(";", ""));
 		Cookie time_cookie = new Cookie("time", str_date1);
 		Cookie regist_count = new Cookie("registCount", "0");
 

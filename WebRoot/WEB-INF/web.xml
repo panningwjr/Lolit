@@ -52,10 +52,10 @@
 		<servlet-name>ShowAllTeamInf</servlet-name>
 		<servlet-class>servlet.backend.committee.ShowAllTeamInf</servlet-class>
 	</servlet>
-  <servlet>
-    <servlet-name>ShowTeamActionData</servlet-name>
-    <servlet-class>servlet.backend.committee.ShowTeamActionData</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>ShowTeamActionData</servlet-name>
+		<servlet-class>servlet.backend.committee.ShowTeamActionData</servlet-class>
+	</servlet>
 
 
 
@@ -115,13 +115,13 @@
 		<servlet-name>ShowAllTeamInf</servlet-name>
 		<url-pattern>/servlet/ShowAllTeamInf</url-pattern>
 	</servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ShowTeamActionData</servlet-name>
-    <url-pattern>/committee/ShowTeamActionData</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ShowTeamActionData</servlet-name>
+		<url-pattern>/committee/ShowTeamActionData</url-pattern>
+	</servlet-mapping>
 
 
-	<!--队伍行为数据分析-->
+	<!--队伍行为数据分析 -->
 
 	<filter>
 		<filter-name>TeamActionDataFilter</filter-name>
@@ -133,7 +133,7 @@
 		<url-pattern>/Front_End/Team_Apply/team_regist_success.jsp</url-pattern>
 	</filter-mapping>
 
-	<!--错误报告数据分析-->
+	<!--错误报告数据分析 -->
 	<filter>
 		<filter-name>ErrorPromptFilter</filter-name>
 		<filter-class>actionListener.ErrorPromptFilter</filter-class>
