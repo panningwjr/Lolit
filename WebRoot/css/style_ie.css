@@ -35,7 +35,7 @@
 
 	.radius_a					{ -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
 
-	.bg_1						{ background: url(/Lolit/images/bg_1.jpg) no-repeat center -50px;background-position:  }
+	.bg_1						{ background: url(/Lolit/images/bg_1.jpg) no-repeat center -50px; }
 	
 	blockquote					{ padding:20px; margin:0 40px 20px 20px; clear:both; }
 
@@ -130,18 +130,23 @@
 /* Prompt & success
 -------------------------------------------------------------------*/
 
-	.prompt_panel				{ width: 840px; height: 520px; margin: 55px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
+	.prompt_panel				{ width: 840px; height: 520px; margin: 55px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;z-index:100; background-color:#ffffff;}
 	.prompt_bg					{ background: url(/Lolit/images/mumu1.png) no-repeat; background-position: 0 220px; width: 840px; height: 520px; position: absolute; }
 	
-	.prompt_bg header			{ margin: 0 0 0 30px; width: 520px; float: left; }
+	.prompt_bg_header			{ margin: 0 0 0 30px; width: 520px; float: left; width: 455px; padding: 5px 10px; text-align: left; color: #5c634d;}
+	/*  */.prompt_bg header			{ margin: 0 0 0 30px; width: 520px; float: left; }
 	.error_title				{ width: 500px; margin: 60px 0 10px 0; }
 	.than_todo					{ margin: 90px 0 10px 0; }
-	.prompt_bg header article	{ width: 455px; background-color: #eee; padding: 5px 10px; text-align: left; color: #5c634d; }
-	.eTodo_msg span				{ color: #22324D!important; }
+	.prompt_bg_article	        { width: 455px; background-color: #eee; padding: 5px 10px; text-align: left; color: #5c634d; }
+	/*  */.prompt_bg header article	{ width: 455px; background-color: #eee; padding: 5px 10px; text-align: left; color: #5c634d; }
+	.eTodo_msg_span				{ width: 455px; color: #22324D; background-color: #eee; padding: 5px 10px; text-align: left; color: #5c634d;}
+	/*  */.eTodo_msg span				{ color: #22324D!important; }
 	
 	.prompt_con					{ float: right; margin: 65px 75px 0 0; }
-	.prompt_con	img				{ width: 40px; height: 40px; margin: -1px; padding: 8px; }
-	.prompt_con	img:hover		{ cursor: pointer; }	
+	.prompt_con_img				{ width: 40px; height: 40px; margin: -1px; padding: 8px; border: 1px solid gray; }
+	/*  */.prompt_con	img				{ width: 40px; height: 40px; margin: -1px; padding: 8px; }
+	.prompt_con_img:hover		{ cursor: pointer; }
+	/*  */.prompt_con	img:hover		{ cursor: pointer; }	
 	
 	
 	.apply_suc_panel_div		{ width: 100%; }
