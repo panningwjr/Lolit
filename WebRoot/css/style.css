@@ -99,7 +99,7 @@
 	.wel_apply					{ width: 100%; height: 270px; background: url(/Lolit/images/bg_black.png) center top repeat-y; position: absolute; z-index: 1000; top: 470px; }
 	
 	.wel_ul						{ width: 800px; height: 50px; color: #fedfaf; margin: 40px auto; text-align: center; }
-	.apply_bg					{ background: url(/Lolit/images/bg-main.jpg) no-repeat center 0px; width: 100%; height: 1000px; margin: 300px auto; position: absolute; }
+	.apply_bg					{ background: url(/Lolit/images/bg-main.jpg) no-repeat center -220px; width: 100%; height: 1000px; margin: 300px auto; position: absolute; }
 	.wel_ul2					{ width: 800px; height: 50px; color: #fedfaf; margin: 90px auto; text-align: center; }
 	.wel_li1					{ position: absolute; left: 50%; margin: -5px 0 0 -200px; z-index: 200; }
 	.wel_li2					{ height: 30px; color: #fedfaf; text-align: center; z-index: 200; background-color: rgba(0,0,0,0); position: absolute; left: 50%; margin: 10px 0 0 -150px; }
@@ -117,13 +117,13 @@
 	.last_apply_ps				{ float: left; width: 440px; height: 300px; text-align: center; }
 	.last_apply_ps label		{ font: bold 4em/1.2 "Mangal"; vertical-align: -2px; color: #FFC12D; text-shadow: 0 0 7px orange; margin: 0 0 0 -43px; }
 	.last_apply_ps span			{ margin: 0 0 0 -30px; }
-	.last_apply_ps img 			{ width: 550px; margin: 7px 0 0 -75px; }
+	.last_apply_ps img 			{ width: 550px; margin: 17px 0 0 -70px; }
 	
 	#idcontent					{ margin: 5px 0 0 10px; background: url(/Lolit/images/new10team.png) no-repeat; background-position: 93px 205px; }
 	#idcontent li				{ width: 400px; height: 30px; text-align: left; }
 	#idcontent li label			{ width: 115px; display: inline-block; margin: 0 0 10px 0; color: #fedfaf; text-indent: 0em; }
 	.last_apply	label 			{ width: 115px; display: inline-block; margin: 0 0 10px 0; color: #6D6461; text-indent: 1em; }
-	.tongkuai					{ margin: -75px 0 0 10px; z-index: 100; }
+	.tongkuai					{ margin: -85px 0 0 10px; z-index: 100; }
 	
 	.wel_li5					{ text-align: left; padding: 235px 0 0 0; }
 	.warm_up					{ background: url(/Lolit/images/rmb1000.png) no-repeat; background-size: 500px auto; width: 500px; height: 249px; margin: 0 0 0 20px; float: left; }

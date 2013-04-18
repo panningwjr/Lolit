@@ -40,6 +40,10 @@
 		response.addCookie(broswer_cookie);
 		response.addCookie(time_cookie);
 	%>
+	<%
+		System.out.println(request.getHeader("x-forwarded-for"));
+		System.out.println(request.getRemoteAddr());
+	%>
 </body>
 
 <script src="<%=request.getContextPath()%>/js/jquery-1.7.1.min.js"></script>
