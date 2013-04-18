@@ -114,7 +114,7 @@
 					<img src="images/5player.png">
 				</section></li>
 			<li class="wel_li5"><img src="images/reward1.png">
-				<section class="warm_up shadow_b"></section> <img
+				<section class="warm_up"></section> <img
 				src="images/title2.png" class="tongkuai">
 			</li>
 			<li style="height: 50px;"></li>
