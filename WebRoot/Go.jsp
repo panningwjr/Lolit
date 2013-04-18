@@ -37,7 +37,7 @@
 			onclick="window.open('http://firefox.com.cn/download/')" /><img
 			src="images/opera_logo.png" alt="欧鹏浏览器，不错的选择。" style="display: none;"
 			onclick="window.open('http://www.opera.com/computer')" /><img
-			src="images/ie10_logo.png" alt="ie10，多处表现惊艳，不再坑爹！" style="display: none;"
+			src="images/ie10_logo.png" alt="IE10，多处表现惊艳，不再坑爹！" style="display: none;"
 			onclick="window.open('http://windows.microsoft.com/zh-cn/internet-explorer/download-ie')" />
 	</div>
 	<div class="go_panel">
