@@ -128,8 +128,9 @@ public class TeamActionImpl implements TeamActionDAO {
 		int registCount = 0;
 		int inta = 0;
 		try {
-			sql = "SELECT registCount FORM lolit.teamaction WHERE ip = '" + ip
+			sql = "SELECT registCount FROM lolit.teamaction WHERE ip = '" + ip
 					+ "'";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -137,6 +138,7 @@ public class TeamActionImpl implements TeamActionDAO {
 			}
 			sql = "UPDATE lolit.teamaction SET registCount = '" + registCount
 					+ "' WHERE ip = '" + ip + "' ";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {

@@ -26,7 +26,6 @@ public class TeamActionDataFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 		// 从cookie中获取队伍行为数据，分析后存入数据库
-		System.out.println("??????????????????????");
 		Cookie[] cookies = (Cookie[]) ((HttpServletRequest) request)
 				.getCookies();
 		if (cookies == null) {
@@ -40,11 +39,9 @@ public class TeamActionDataFilter implements Filter {
 				} else if ("time".equals(cookieName)) {
 					tAction.setTime(cookies[i].getValue());
 				} else if ("registCount".equals(cookieName)) {
+					System.out.println(cookies[i].getValue());
 					tAction.setRegistCount(Integer.parseInt(cookies[i]
 							.getValue()));
-					System.out.println("hhhhhhhhhhhhhhhhhhhhh");
-					System.out.println(tAction.getRegistCount());
-					System.out.println("hhhhhhhhhhhhhhhhhhhhh");
 				} else if ("broswer".equals(cookieName)) {
 					tAction.setBrowser(cookies[i].getValue());
 				}
@@ -54,7 +51,11 @@ public class TeamActionDataFilter implements Filter {
 			try {
 				teamActionDAO = DAOFactory.getTeamActionDAOInstance();
 				// 判断是Go界面还是注册成功界面抓过来的信息
-				if (tAction.getRegistCount() == 0) {
+				if (tAction.getRegistCount() == 1) {
+					if (teamActionDAO.doUpdateRegistSuccess(ip)) {
+						System.out.println("用户注册次数更新成功！");
+					}
+				} else if (tAction.getRegistCount() == 0) {
 					// 判断用户是否是第一次访问本网站
 					if (teamActionDAO.doSelectTeamActionIp(ip)) {
 						if (teamActionDAO.doUpdateTeamActionAgain(tAction)) {
@@ -64,10 +65,6 @@ public class TeamActionDataFilter implements Filter {
 						if (teamActionDAO.doInsertTeamAction(tAction)) {
 							System.out.println("用户第一次操作数据录入成功！");
 						}
-					}
-				} else {
-					if (teamActionDAO.doUpdateRegistSuccess(ip)) {
-						System.out.println("用户注册次数更新成功！");
 					}
 				}
 			} catch (Exception e) {

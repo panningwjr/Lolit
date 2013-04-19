@@ -26,7 +26,6 @@
 </head>
 
 
-
 <body>
 	<div id="panel_div" class="bg_1"></div>
 
