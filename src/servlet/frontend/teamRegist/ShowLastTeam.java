@@ -42,9 +42,11 @@ public class ShowLastTeam extends HttpServlet {
 
 			// 获取 10个队伍
 			int count = 10;
+			int tListCount = tList.size();
 			if (tList.size() < 10) {
 				count = tList.size();
 			}
+			System.out.println(count);
 			for (int i = 0; i < count; i++) {
 				Team team = tList.get(i);
 				Long tId = team.gettId();
@@ -55,8 +57,12 @@ public class ShowLastTeam extends HttpServlet {
 				team.settId(tId);
 				tList.set(i, team);
 			}
+			for (int i = count - 1; i < tList.size(); i++) {
+				tList.remove(i);
+			}
 
 			request.setAttribute("tList", tList);
+			request.setAttribute("tListCount", tListCount);
 			url = "/Welcome.jsp";
 			System.out.println("teamList size:" + tList.size());
 

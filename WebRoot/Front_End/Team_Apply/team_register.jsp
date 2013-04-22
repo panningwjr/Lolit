@@ -53,7 +53,7 @@
 					</li>
 					<li class="li_form"><label for="tPwd1" class="label_reg">队伍口令:</label><input
 						type="password" id="tPwd1" name="tPwd1"
-						placeholder="6-18位英文、数字或下划线">
+						placeholder="6-18位英文或数字">
 					</li>
 					<li class="li_form"><label for="tPwd2" class="label_reg">确认口令:</label><input
 						type="password" id="tPwd2" name="tPwd2" placeholder="重复">
@@ -186,6 +186,15 @@
 				+ Math.random();
 	}
 </script>
+
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0 || navigator.userAgent.indexOf("MSIE 8.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+			window.location.href = "/Lolit/Front_End/Team_Apply/team_register_ie.jsp";
+		}
+	};
+</script>
+
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>

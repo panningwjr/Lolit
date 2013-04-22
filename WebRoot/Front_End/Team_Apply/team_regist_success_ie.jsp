@@ -69,6 +69,16 @@
 	</div>
 </body>
 
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0 || navigator.userAgent.indexOf("MSIE 8.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0) {}
+		else {
+			window.location.href = "/Lolit/Front_End/Team_Apply/team_regist_success.jsp";
+		}
+	};
+</script>
+
+
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>
 

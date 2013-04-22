@@ -187,6 +187,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 </script>
 
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0 || navigator.userAgent.indexOf("MSIE 8.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0) {}
+		else {
+			window.location.href = "/Lolit/Front_End/Team_Apply/team_register.jsp";
+		}
+	};
+</script>
+
+
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>
 <script type="text/javascript"

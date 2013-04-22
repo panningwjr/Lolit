@@ -110,7 +110,7 @@
 					</ul>
 				</section>
 				<section class="last_apply_ps">
-					<br> <label><%=tList.size()%></label><br> <span>支队伍已经参与报名！</span><br>
+					<br> <label><%=request.getAttribute("tListCount")%></label><br> <span>支队伍已经参与报名！</span><br>
 					<img src="images/5player.png">
 				</section></li>
 			<li class="wel_li5"><img src="images/reward1.png">

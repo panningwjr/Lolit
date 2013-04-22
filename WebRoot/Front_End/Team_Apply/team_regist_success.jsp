@@ -24,6 +24,13 @@
 
 </head>
 
+<%
+	request.setAttribute("tName", request.getAttribute("tName"));
+	request.setAttribute("tBelonging",
+			request.getAttribute("tBelonging"));
+	request.setAttribute("pName", request.getAttribute("pName"));
+%>
+
 <body>
 	<div id="panel_div" class="bg_1"></div>
 	<article class="apply_suc_panel shadow_b">
@@ -31,7 +38,7 @@
 		<section class="apply_suc_bg"></section>
 		<header>
 			<img src="images/apply/congratulation.png" class="congra"><br>
-			<label><%=request.getAttribute("tName")%></label><br> <span><%=request.getAttribute("tBelonging")%></span><span>队长：<%=request.getAttribute("pName")%></span><br>
+			<label><%=request.getAttribute("tName")%></label><br> <span><%=request.getAttribute("")%></span><span>队长：<%=request.getAttribute("")%></span><br>
 			<aside>非常感谢您的耐心注册，并恭喜您的队伍已完成第一步报名任务！</aside>
 			<div class="apply_step">
 				<section class="shadow_a1 radius_a step_done">
@@ -63,6 +70,17 @@
 		</div>
 	</article>
 </body>
+
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 8.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 7.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+			window.location.href = "/Lolit/Front_End/Team_Apply/team_regist_success_ie.jsp";
+		}
+	};
+</script>
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>

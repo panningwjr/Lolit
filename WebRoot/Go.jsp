@@ -53,7 +53,7 @@
 						onmouseover="show_bro_mode_ps()" style="color: #999;">高速模式</a>
 					或使用上面推荐的浏览器
 				</div>
-				<button class="go_ignore_bt">
+				<button class="go_ignore_bt" onclick="window.location.href = 'Front_End/Team_Apply/team_register_ie.jsp'">
 					忽略<br />并直接报名
 				</button>
 			</div>

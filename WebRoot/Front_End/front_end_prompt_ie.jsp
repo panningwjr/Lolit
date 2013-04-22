@@ -147,4 +147,14 @@
 	</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0 || navigator.userAgent.indexOf("MSIE 8.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0) {}
+		else {
+			window.location.href = "/Lolit/Front_End/front_end_prompt.jsp?e=<%=eCodes%>";
+		}
+	};
+</script>
+
 </html>
