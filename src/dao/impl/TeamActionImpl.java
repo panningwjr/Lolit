@@ -152,17 +152,35 @@ public class TeamActionImpl implements TeamActionDAO {
 
 	}
 
-	// 向数据库录入用户注册异常信息
+	// 向数据库录入用户LoginFilter.javaLoginFilter.java注册异常信息
 	public boolean doInsertErrorNumber(String ip, int eNumber) throws Exception {
 		int inta = 0;
+		int eCount = 0;
 		String sql = "";
 		try {
 			sql = "INSERT INTO lolit.teamaction_has_errorprompt (teamaction_ip,errorPrompt_eNumber)VALUES('"
 					+ ip + "','" + eNumber + "')";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
 				System.out.println("注册异常信息录入成功！");
+			}
+			sql = "SELECT eCount FROM lolit.errorprompt WHERE eNumber = '"
+					+ eNumber + "'";
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				eCount = rs.getInt("eCount") + 1;
+			}
+			sql = "UPDATE lolit.errorprompt SET eCount = '" + eCount
+					+ "'WHERE eNumber = '" + eNumber + "'";
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);
+			inta = pstmt.executeUpdate();
+			if (inta > 0) {
+				System.out.println("异常出错次数录入成功！");
 				return true;
 			}
 		} catch (Exception e) {

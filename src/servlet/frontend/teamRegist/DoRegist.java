@@ -35,7 +35,7 @@ public class DoRegist extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		String pathF = "/Front_End/front_end_prompt.jsp";
+		String pathF = "/Front_End/before_front_end_prompt.jsp";
 		String path = null;
 
 		TeamDAO tDAO = null;

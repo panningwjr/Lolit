@@ -39,7 +39,6 @@ public class TeamActionDataFilter implements Filter {
 				} else if ("time".equals(cookieName)) {
 					tAction.setTime(cookies[i].getValue());
 				} else if ("registCount".equals(cookieName)) {
-					System.out.println(cookies[i].getValue());
 					tAction.setRegistCount(Integer.parseInt(cookies[i]
 							.getValue()));
 				} else if ("broswer".equals(cookieName)) {
