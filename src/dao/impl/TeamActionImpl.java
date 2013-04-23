@@ -152,7 +152,7 @@ public class TeamActionImpl implements TeamActionDAO {
 
 	}
 
-	// 向数据库录入用户LoginFilter.javaLoginFilter.java注册异常信息
+	// 向数据库录入用户注册异常信息
 	public boolean doInsertErrorNumber(String ip, int eNumber) throws Exception {
 		int inta = 0;
 		int eCount = 0;

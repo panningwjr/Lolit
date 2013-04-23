@@ -1,28 +1,29 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>IE Registration Form</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<meta charset="UTF-8">
-	
-	
-	
+<head>
+<base href="<%=basePath%>">
+
+<title>IE Registration Form</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta charset="UTF-8">
+
+
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/style_ie.css">
-
 </head>
 
 
@@ -40,22 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="register_team shadow_b">
 				<div>
 					<hgroup>
-						<h2>Registration Form</h2>
-						<h3>报名表</h3>
+					<h2>Registration Form</h2>
+					<h3>报名表</h3>
 					</hgroup>
 				</div>
 
 				<ul class="ul_form_a">
-					<li><h4>队伍信息 Team Form</h4></li>
-					<li class="li_form"><label for="tName" class="label_reg">队伍名称:</label><input
-						type="text" id="tName" name="tName" placeholder="如：大神联盟">
+					<li><h4>队伍信息 Team Form</h4>
 					</li>
+					<li class="li_form"><label for="tName" class="label_reg">队伍名称:</label><input
+						type="text" id="tName" name="tName" placeholder="如：大神联盟"
+						onblur="tNameCheck()">
+					</li>
+					<li class="li_form"><label id="tName_msg"></label></li>
 					<li class="li_form"><label for="tPwd1" class="label_reg">队伍口令:</label><input
 						type="password" id="tPwd1" name="tPwd1"
-						placeholder="6-18位英文、数字或下划线">
+						placeholder="6-18位英文、数字或下划线" onblur="tPwd1Check()">
+					</li>
+					<li class="li_form"><label id="tPwd1_msg"></label>
 					</li>
 					<li class="li_form"><label for="tPwd2" class="label_reg">确认口令:</label><input
-						type="password" id="tPwd2" name="tPwd2" placeholder="重复">
+						type="password" id="tPwd2" name="tPwd2" placeholder="重复"
+						onblur="tPwd2Check()">
+					</li>
+					</li>
+					<li class="li_form"><label id="tPwd2_msg"></label>
 					</li>
 
 					<br>
@@ -83,7 +93,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<option value="国际教育">国际教育</option>
 					</select><label>学院</label></li>
 					<li class="li_form"><label for="pWin1" class="label_reg">队员平均胜场:</label><input
-						type="text" name="pWin1" id="pWin1"><label style="margin: 0 0 0 88px;">场</label>
+						type="text" name="pWin1" id="pWin1" onblur="pWin1Check()"><label
+						style="margin: 0 0 0 88px;">场</label></li>
+					<li class="li_form"><label id="pWin1_msg"></label>
 					</li>
 					<li class="li_form"><label for="pServer1" class="label_reg">队员大号所在大区:</label><select
 						id="pServer1" name="pServer1">
@@ -134,27 +146,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li class="li_form"><h4>队长 Captain</h4></li>
 					<br>
 					<li class="li_form"><label for="pId1" class="label_reg">学号:</label><input
-						type="text" id="pId1" name="pId1" placeholder="xxxxxx-xxxx">
+						type="text" id="pId1" name="pId1" placeholder="xxxxxx-xxxx"
+						onblur="pIdCheck()">
+					</li>
+					<li class="li_form"><lable id="pId_msg1"></lable>
 					</li>
 					<li class="li_form"><label for="pName1" class="label_reg">姓名:</label><input
-						type="text" id="pName1" name="pName1" placeholder="请填写真实姓名">
+						type="text" id="pName1" name="pName1" placeholder="请填写真实姓名"
+						onblur="pNameCheck()">
+					</li>
+					<li class="li_form"><lable id="pName_msg1"></lable>
 					</li>
 					<li class="li_form"><label for="pGender1" class="label_reg">性别:</label><input
-						type="radio" id="pGender1" value="1" 
-						name="pGender1" class="bool_range" checked="checked"><label id="pGender1_label">男</label>
-						<input type="radio"  id="pGender1" value="2" 
-						name="pGender1" class="bool_range"><label id="pGender1_label">女</label>
-					</li>
+						type="radio" id="pGender1" value="1" name="pGender1"
+						class="bool_range" checked="checked"><label
+						id="pGender1_label">男</label> <input type="radio" id="pGender1"
+						value="2" name="pGender1" class="bool_range"><label
+						id="pGender1_label">女</label></li>
 					<li class="li_form"><label for="tPhone" class="label_reg">联系电话:</label><input
-						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx">
+						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx"
+						onblur="tPhoneCheck()">
 					</li>
-					<br><br>
-					<li class="li_form checkNum"><label for="tCheckNum" class="label_reg">验证码:</label><input
-						type="text" id="tCheckNum" name="tCheckNum" maxlength=4 ><img
-						id="codeImg" border=0
-						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp" style="margin: 0 0 0 150px;"><a
-						href="javascript:void(0)" onclick="reloadCheckCode()" >换一张</a>
+					<li class="li_form"><lable id="tPhone_msg"></lable>
 					</li>
+					<br>
+					<br>
+					<li class="li_form checkNum"><label for="tCheckNum"
+						class="label_reg">验证码:</label><input type="text" id="tCheckNum"
+						name="tCheckNum" maxlength=4><img id="codeImg" border=0
+						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp"
+						style="margin: 0 0 0 150px;"><a href="javascript:void(0)"
+						onclick="reloadCheckCode()">换一张</a></li>
 				</ul>
 				<div class="div_ps">
 					<p>说明：</p>
@@ -174,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</form>
 	</div>
-	<div class="footer"> </div>
+	<div class="footer"></div>
 
 
 </body>
@@ -182,14 +204,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--GR刷新验证码  -->
 <script language='JavaScript'>
 	function reloadCheckCode() {
-		document.getElementById("codeImg").src = "/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp?"
-				+ Math.random();
+		document.getElementById("
+						codeImg").src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp?"+ Math.random();
 	}
-</script>
 
+					</script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>
 <script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/check.js"></script>
-
+	src="<%=request.getContextPath()%>/js/check_ie.js" charset="GBK"></script>
 </html>
