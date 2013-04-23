@@ -38,7 +38,7 @@
 		<section class="apply_suc_bg"></section>
 		<header>
 			<img src="images/apply/congratulation.png" class="congra"><br>
-			<label><%=request.getAttribute("tName")%></label><br> <span><%=request.getAttribute("")%></span><span>队长：<%=request.getAttribute("")%></span><br>
+			<label><%=request.getAttribute("tName")%></label><br> <span><%=request.getAttribute("tBelonging")%></span><span>队长：<%=request.getAttribute("pName")%></span><br>
 			<aside>非常感谢您的耐心注册，并恭喜您的队伍已完成第一步报名任务！</aside>
 			<div class="apply_step">
 				<section class="shadow_a1 radius_a step_done">

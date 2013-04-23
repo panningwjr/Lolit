@@ -122,7 +122,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="div_ps">
 					<p>说明：</p>
 					<ul>
-						<li class="ul_ps">为了赛事的公平公正，本赛事采取实名制报名，请各队伍如实填写相关信息，我们稍后会进一步审核。</li>
+					<li class="ul_ps">本赛事只接受至少5人的队伍报名，如您的队伍人数不够，您可以<a>点击这里</a>以找到您中意的队友。</li>
+						<li class="ul_ps">请各队伍如实填写相关信息，赛组委稍后会进一步审核。</li>
 					</ul>
 				</div>
 
@@ -160,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<p>说明：</p>
 					<ul>
 						<li class="ul_ps">第一届的赛事将先收集同学们的情况，由赛组委统计分析后再制定赛程、赛制。</li>
-						<li class="ul_ps">宿舍地址用来防止比赛中有非团队成员参与作弊，我们会有工作人员随机抽查；我也保证此类信息的隐私保护。</li>
+						<li class="ul_ps">手机号将用来与队伍联系和审核信息，我们承诺所有隐私信息的绝对保护。</li>
 					</ul>
 				</div>
 
@@ -174,9 +175,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</form>
 	</div>
-	<div class="footer"> </div>
+	<div style="height: 100px;"> </div>
 
-
+	<%@include file="/Tools/footer.jsp"%>
+	
 </body>
 
 <!--GR刷新验证码  -->

@@ -46,7 +46,6 @@ public class ShowLastTeam extends HttpServlet {
 			if (tList.size() < 10) {
 				count = tList.size();
 			}
-			System.out.println(count);
 			for (int i = 0; i < count; i++) {
 				Team team = tList.get(i);
 				Long tId = team.gettId();

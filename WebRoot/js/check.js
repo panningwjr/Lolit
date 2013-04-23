@@ -29,10 +29,11 @@ function teamRegCheck() {
 	// tPwd1 = tPwd2
 	if (tPwd1.value != tPwd2.value) {
 		tPwd2.setCustomValidity("两次输入的密码不相符。");
+		tPwd2.checkValidity();
 	} else {
-		tPwd1.setCustomValidity("");
+		tPwd2.setCustomValidity("");
 	}
-
+	
 	// tPhone
 	var tPhone = document.getElementById('tPhone');
 	var reg = /^1[3|4|5|8][0-9]\d{8}$/;

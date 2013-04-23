@@ -13,8 +13,7 @@
 
 	p { margin:0 0 1em 0; padding:0; } /* Default link styling */
 	a { text-decoration:underline; }
-	li a { text-decoration:none; }
-	a:hover { text-decoration:none; position:relative; top:1px; } /* Float an element left with a margin */
+	a:hover { position:relative; top:1px; cursor: pointer; } /* Float an element left with a margin */
 	a:active { position:relative; top:1px; } /* Float an element left with a margin */
 
 	.floatL						{ float:left; } /* Float an element right with a margin */
@@ -112,7 +111,6 @@
 	.checkNum input[type=text]	{ width: 130px!important; }
 	.checkNum img				{ margin: 0 0 0 5px; vertical-align: -5px; }
 	
-	.footer						{ background-color:#111; height: 100px; width: 100%; margin: 50px 0 0 0; }
 
 	input[type=checkbox]		{ vertical-align: middle; }
 	input[type=text],
@@ -175,4 +173,11 @@
 	.skin_list div				{ width: 860px; margin: 0 auto; }
 	.skin_list_img 				{ width: 410px; margin: 10px 5px 0 10px; }
 	.skin_list img 				{ width: 410px; margin: 10px 5px 0 10px; }
+	
+	
+/* footer
+-------------------------------------------------------------------*/
+
+	.footer						{ width: 600px; height: 76px; margin: -76px auto; text-align: center; color: #555; }
+	
 
