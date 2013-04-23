@@ -26,6 +26,21 @@ function goWebsite() {
 	}
 }
 
+// 区分浏览器版本，来加载不同的CSS文件。
+function checkBrowers() {
+	if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+		// IE
+		setActiveStyleSheet("style_ie.css");
+	} else {
+		setActiveStyleSheet("style_chr.css");
+	}
+
+	function setActiveStyleSheet(title) {
+		document.getElementsByTagName("link")[0].href = "/Lolit/css/"
+				+ title;
+	}
+}
+
 // screen
 // --------------------------------------------------------------------
 function bgWidth() {
