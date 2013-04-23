@@ -8,6 +8,11 @@
 	table { border-collapse:collapse; border-spacing:0; margin-bottom:10px; width:100%; }
 	ol,ul,li { list-style: none; }
 	iframe { float: right; width: 100%; }
+	
+	h2							{ font: bold 28px/35px Tahoma,"simsun","Microsoft Yahei"; text-align: center; padding: 15px 0 0 0; }
+	h3							{ font: bold 16px/30px "Microsoft Yahei"; text-align: center; }
+	h4							{ font: normal 14px/30px "Microsoft Yahei"; margin: 5px 0 20px 0; }
+	p  							{ font-size: 12px; color: grey; }
 
 	p { margin:0 0 1em 0; padding:0; } /* Default link styling */
 	a { text-decoration:underline; }
@@ -81,15 +86,15 @@
 	
 .apply_suc_panel_header 		{ margin: 0 0 0 30px; width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px;  font-size: 1.1em; color: #db7b17; }
 .congra							{ width: 200px; margin: 80px 0 0 0; }
-.apply_suc_panel_label	{ width: 200px; height: 25px; background-color: #ffeeee; display: inline-block; padding: 5px 0 0 5px; text-align: center; font-size: 1.1em; }
-.apply_suc_panel_span	{ width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px; text-align: center; }	
-.apply_suc_panel_aside	{ height: 25px; padding: 5px 0 0 5px; color: #db7b17; margin: 50px 0 0 0; }
+.apply_suc_panel_label			{ width: 200px; height: 25px; background-color: #ffeeee; display: inline-block; padding: 5px 0 0 5px; text-align: center; font-size: 1.1em; }
+.apply_suc_panel_span			{ width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px; text-align: center; }	
+.apply_suc_panel_aside			{ height: 25px; padding: 5px 0 0 5px; color: #db7b17; margin: 50px 0 0 0; }
 
 .shadow_b						{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
 .congra							{ width: 200px; margin: 80px 0 0 0; }
 
 .apply_step_section				{ width: 180px; height: 160px; float: left; margin: 0 25px 0 0; background-color: #ffeeee; text-align: center; padding: 0 10px 0 10px; }
-.apply_step_h2			{ height: 50px; padding: 20px 0 0 0; color: #333; }
+.apply_step_h2					{ height: 50px; padding: 20px 0 0 0; color: #333; font-size: 30px; }
 
 .shadow_a1						{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
 

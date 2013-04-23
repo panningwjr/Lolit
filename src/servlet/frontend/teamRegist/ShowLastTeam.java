@@ -32,7 +32,6 @@ public class ShowLastTeam extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 
 		ArrayList<Team> tList = new ArrayList<Team>();
-		ArrayList<Team> tList2 = new ArrayList<Team>();
 		TeamDAO tDAO = null;
 		String url = "/Front_End/front_end_prompt.jsp";
 
@@ -55,7 +54,7 @@ public class ShowLastTeam extends HttpServlet {
 				tIdStr = tIdStr.substring(0, 8);
 				tId = Long.parseLong(tIdStr);
 				team.settId(tId);
-				tList2.set(i, team);
+				tList.set(i, team);
 			}
 			for (int i = count - 1; i < tList.size(); i++) {
 				tList.remove(i);
