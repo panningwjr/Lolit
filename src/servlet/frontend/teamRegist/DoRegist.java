@@ -35,7 +35,7 @@ public class DoRegist extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 
-		String pathF = "/Front_End/front_end_prompt.jsp";
+		String pathF = "/Front_End/before_front_end_prompt.jsp";
 		String path = null;
 
 		TeamDAO tDAO = null;
@@ -156,7 +156,7 @@ public class DoRegist extends HttpServlet {
 						if (tDAO.doSelectPlayerId(Integer.parseInt(request
 								.getParameter("pId1")))) {
 							if (tDAO.doInsert(team)) {
-								path = "/Front_End/Team_Apply/team_regist_success.jsp";
+								path = "/Front_End/Team_Apply/before_regist_success.jsp";
 								request.setAttribute("tName", tName);
 								request.setAttribute("tBelonging", tBelonging);
 								request.setAttribute("pName",

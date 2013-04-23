@@ -36,8 +36,9 @@
 		int eCodes = 0;
 		String eRemind = "很抱歉！这是一个未知的错误。";
 		String eTodo = "您可通过本页面右侧所提供的方式告知我们，我们将第一时间回复您。";
-		if (request.getParameter("e") != null) {
-			eCodes = Integer.parseInt(request.getParameter("e"));
+		if (session.getAttribute("ErrorCodes") != null) {
+			eCodes = Integer.parseInt(session.getAttribute("ErrorCodes")
+					.toString());
 		}
 	%>
 	<div id="panel_div" class="bg_1"></div>

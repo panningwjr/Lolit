@@ -64,6 +64,7 @@ public class TeamActionImpl implements TeamActionDAO {
 		String firstTime = tAction.getTime();
 		String firstBrowser = tAction.getBrowser();
 		int registCount = tAction.getRegistCount();
+		int visitCount = 1;
 
 		int inta = 0;
 		String sql = "";
@@ -75,7 +76,7 @@ public class TeamActionImpl implements TeamActionDAO {
 					+ "','"
 					+ firstBrowser
 					+ "','"
-					+ registCount + "')";
+					+ visitCount + "','" + registCount + "')";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
@@ -89,16 +90,26 @@ public class TeamActionImpl implements TeamActionDAO {
 	}
 
 	// 向数据库录入用户操作信息，再次访问
-	public boolean doInsertTeamActionAgain(TeamAction tAction) throws Exception {
+	public boolean doUpdateTeamActionAgain(TeamAction tAction) throws Exception {
 
+		String ip = tAction.getIp();
 		String lastTime = tAction.getTime();
 		String lastBrowser = tAction.getBrowser();
+		int visitCount = 1;// 默认第一次访问
 
 		int inta = 0;
 		String sql = "";
 		try {
-			sql = "INSERT INTO lolit.teamaction (lastTime,lastBrowser) VALUES ('"
-					+ lastTime + "','" + lastBrowser + "')";
+			sql = "SELECT visitCount FROM lolit.teamaction WHERE ip = '" + ip
+					+ "'";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				visitCount = rs.getInt("visitCount") + 1;
+			}
+			sql = "UPDATE lolit.teamaction SET lastTime = '" + lastTime
+					+ "' , lastBrowser = '" + lastBrowser + "',visitCount = '"
+					+ visitCount + "' WHERE ip = '" + ip + "'";
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
@@ -117,8 +128,9 @@ public class TeamActionImpl implements TeamActionDAO {
 		int registCount = 0;
 		int inta = 0;
 		try {
-			sql = "SELECT registCount FORM lolit.teamaction WHERE ip = '" + ip
+			sql = "SELECT registCount FROM lolit.teamaction WHERE ip = '" + ip
 					+ "'";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -126,6 +138,7 @@ public class TeamActionImpl implements TeamActionDAO {
 			}
 			sql = "UPDATE lolit.teamaction SET registCount = '" + registCount
 					+ "' WHERE ip = '" + ip + "' ";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
@@ -142,14 +155,32 @@ public class TeamActionImpl implements TeamActionDAO {
 	// 向数据库录入用户注册异常信息
 	public boolean doInsertErrorNumber(String ip, int eNumber) throws Exception {
 		int inta = 0;
+		int eCount = 0;
 		String sql = "";
 		try {
 			sql = "INSERT INTO lolit.teamaction_has_errorprompt (teamaction_ip,errorPrompt_eNumber)VALUES('"
 					+ ip + "','" + eNumber + "')";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
 			inta = pstmt.executeUpdate();
 			if (inta > 0) {
 				System.out.println("注册异常信息录入成功！");
+			}
+			sql = "SELECT eCount FROM lolit.errorprompt WHERE eNumber = '"
+					+ eNumber + "'";
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				eCount = rs.getInt("eCount") + 1;
+			}
+			sql = "UPDATE lolit.errorprompt SET eCount = '" + eCount
+					+ "'WHERE eNumber = '" + eNumber + "'";
+			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql);
+			inta = pstmt.executeUpdate();
+			if (inta > 0) {
+				System.out.println("异常出错次数录入成功！");
 				return true;
 			}
 		} catch (Exception e) {
