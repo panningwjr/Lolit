@@ -42,7 +42,7 @@
 	</div>
 	<div class="go_panel">
 
-		<img src="images/lolit.png" width="230px"> <object>
+		<img src="images/lolit.png" width="300px"> <object>
 				<param name="wmode" value="Opaque">
 					<embed src="images/welcome/loading.swf"
 						type="application/x-shockwave-flash"></embed>
