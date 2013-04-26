@@ -42,7 +42,7 @@
 	</div>
 	<div class="go_panel">
 
-		<img src="images/lolit.png" width="210px"> <object>
+		<img src="images/lolit.png" width="300px"> <object>
 				<param name="wmode" value="Opaque">
 					<embed src="images/welcome/loading.swf"
 						type="application/x-shockwave-flash"></embed>
@@ -53,7 +53,7 @@
 						onmouseover="show_bro_mode_ps()" style="color: #999;">高速模式</a>
 					或使用上面推荐的浏览器
 				</div>
-				<button class="go_ignore_bt">
+				<button class="go_ignore_bt" onclick="window.location.href = 'Front_End/Team_Apply/team_register_ie.jsp'">
 					忽略<br />并直接报名
 				</button>
 			</div>

@@ -34,9 +34,6 @@
 		<form id="teamRegister" action="frontend/teamRegist/DoRegist"
 			method="post">
 
-			<button class="return_button" id="return_button"
-				onclick="returnPage()"></button>
-
 			<section class="register_team shadow_b">
 				<header>
 					<hgroup>
@@ -46,13 +43,13 @@
 				</header>
 
 				<ul class="ul_form_a">
-					<li><h4>队伍信息 Team Form</h4></li>
+					<li><h4>队伍信息 Team Form</h4>
+					</li>
 					<li class="li_form"><label for="tName" class="label_reg">队伍名称:</label><input
 						type="text" id="tName" name="tName" placeholder="如：大神联盟">
 					</li>
 					<li class="li_form"><label for="tPwd1" class="label_reg">队伍口令:</label><input
-						type="password" id="tPwd1" name="tPwd1"
-						placeholder="6-18位英文、数字或下划线">
+						type="password" id="tPwd1" name="tPwd1" placeholder="6-18位英文或数字">
 					</li>
 					<li class="li_form"><label for="tPwd2" class="label_reg">确认口令:</label><input
 						type="password" id="tPwd2" name="tPwd2" placeholder="重复">
@@ -81,7 +78,8 @@
 							<option value="外国语">外国语</option>
 							<option value="应用技术">应用技术</option>
 							<option value="国际教育">国际教育</option>
-					</select><label>学院</label></li>
+					</select><label>学院</label>
+					</li>
 					<li class="li_form"><label for="pWin1" class="label_reg">队员平均胜场:</label><input
 						type="number" name="pWin1" id="pWin1" min="0" max="10000"><label>场</label>
 					</li>
@@ -112,8 +110,7 @@
 							<option value="诺克萨斯">诺克萨斯</option>
 							<option value="德玛西亚">德玛西亚</option>
 							<option value="祖安">祖安</option>
-					</select>
-					</li>
+					</select></li>
 					<li class="li_form"><label for="pRank1" class="label_reg">队伍rank值:</label><input
 						type="text" id="pRank1" name="pRank1" placeholder="可填队长rank来代表本队">
 					</li>
@@ -122,7 +119,8 @@
 				<aside class="aside_ps">
 					<p>说明：</p>
 					<ul>
-						<li class="ul_ps">为了赛事的公平公正，本赛事采取实名制报名，请各队伍如实填写相关信息，我们稍后会进一步审核。</li>
+					<li class="ul_ps">本赛事只接受至少5人的队伍报名，如您的队伍人数不够，您可以<a>点击这里</a>以找到您中意的队友。</li>
+						<li class="ul_ps">请各队伍如实填写相关信息，赛组委稍后会进一步审核。</li>
 					</ul>
 				</aside>
 
@@ -131,7 +129,8 @@
 
 			<section class="register_player shadow_b">
 				<ul class="ul_form_a">
-					<li class="li_form"><h4>队长 Captain</h4></li>
+					<li class="li_form"><h4>队长 Captain</h4>
+					</li>
 					<br>
 					<li class="li_form"><label for="pId1" class="label_reg">学号:</label><input
 						type="text" id="pId1" name="pId1" placeholder="xxxxxx-xxxx">
@@ -140,9 +139,10 @@
 						type="text" id="pName1" name="pName1" placeholder="请填写真实姓名">
 					</li>
 					<li class="li_form"><label for="pGender1" class="label_reg">性别:</label><input
-						type="range" id="pGender1" value="1" min="0" max="1"
-						name="pGender1" value="male" class="bool_range"
-						onchange="pGender_check(1)"><label id="pGender1_label">男</label>
+						type="radio" id="pGender1" value="1" 
+						name="pGender1" class="bool_range" checked="checked"><label id="pGender1_label">男</label>
+						<input type="radio"  id="pGender1" value="2" 
+						name="pGender1" class="bool_range"><label id="pGender1_label">女</label>
 					</li>
 					<li class="li_form"><label for="tPhone" class="label_reg">联系电话:</label><input
 						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx">
@@ -153,14 +153,13 @@
 						class="label_reg">验证码:</label><input type="text" id="tCheckNum"
 						name="tCheckNum" maxlength=4><img id="codeImg" border=0
 						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp"><a
-						href="javascript:void(0)" onclick="reloadCheckCode()">换一张</a>
-					</li>
+						href="javascript:void(0)" onclick="reloadCheckCode()">换一张</a></li>
 				</ul>
 				<aside class="aside_ps">
 					<p>说明：</p>
 					<ul>
 						<li class="ul_ps">第一届的赛事将先收集同学们的情况，由赛组委统计分析后再制定赛程、赛制。</li>
-						<li class="ul_ps">宿舍地址用来防止比赛中有非团队成员参与作弊，我们会有工作人员随机抽查；我也保证此类信息的隐私保护。</li>
+						<li class="ul_ps">手机号将用来与队伍联系和审核信息，我们承诺所有隐私信息的绝对保护。</li>
 					</ul>
 				</aside>
 
@@ -174,8 +173,9 @@
 			</section>
 		</form>
 	</article>
-	<footer class="Footer"> </footer>
+	<div style="height: 100px;"></div>
 
+	<%@include file="/Tools/footer.jsp"%>
 
 </body>
 
@@ -186,6 +186,18 @@
 				+ Math.random();
 	}
 </script>
+
+<script type="text/javascript">
+	window.onload = function() {
+		if (navigator.userAgent.indexOf("MSIE 9.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 8.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 7.0") > 0
+				|| navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+			window.location.href = "/Lolit/Front_End/Team_Apply/team_register_ie.jsp";
+		}
+	};
+</script>
+
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/global.js"></script>

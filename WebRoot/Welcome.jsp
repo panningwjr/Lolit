@@ -83,7 +83,8 @@
 				src="images/stamp.png" class="stamp"></li>
 			<li class="wel_li3" onclick="gotoApplyPage()"><object>
 					<param name="wmode" value="Opaque">
-					<embed src="images/welcome/apply_button.swf" wmode="Opaque"></embed>
+					<embed src="images/welcome/apply_button.swf" wmode="Opaque"
+						type="application/x-shockwave-flash"></embed>
 				</object>
 			</li>
 			<img src="images/title1.png" class="apply_bt_ps">
@@ -99,8 +100,8 @@
 					<ul id="idcontent">
 						<%
 							for (int i = 0; i < tList.size(); i++) {
-																Team team = tList.get(i);
-																String date = String.valueOf(team.gettId());
+								Team team = tList.get(i);
+								String date = String.valueOf(team.gettId());
 						%>
 						<li><label><%=team.gettName()%></label><label><%=team.gettBelonging()%></label><label><%=date.substring(0, 4)%>-<%=date.substring(4, 6)%>-<%=date.substring(6, 8)%></label>
 						</li>
@@ -110,16 +111,26 @@
 					</ul>
 				</section>
 				<section class="last_apply_ps">
-					<br> <label><%=tList.size()%></label><br> <span>支队伍已经参与报名！</span><br>
-					<img src="images/5player.png">
+					<br> <label><%=request.getAttribute("tListCount")%></label><br>
+					<span>支队伍已经参与报名！</span><br> <img src="images/5player.png">
 				</section></li>
 			<li class="wel_li5"><img src="images/reward1.png">
-				<section class="warm_up"></section> <img
-				src="images/title2.png" class="tongkuai">
+				<section class="warm_up"></section> <img src="images/title2.png"
+				class="tongkuai">
+				<ul class="gu_channel">
+					<li class="gu_channel_li1">官方互动活动平台</li>
+					<li class="gu_channel_li2"><img src="images/apply/renren.png"
+						class="shadow_a"><img src="images/apply/weibo2.png"
+						class="shadow_a"><img src="images/apply/weixin.png"
+						class="shadow_a">
+					</li>
+				</ul>
 			</li>
 			<li style="height: 50px;"></li>
 		</ul>
 	</section>
+
+	<%@include file="/Tools/footer.jsp"%>
 
 </body>
 
