@@ -1,0 +1,113 @@
+/* Global reset
+-------------------------------------------------------------------*/
+
+	html,body,div,article,section,nav,aside,time,header,hgroup,footer,address,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,pre,form,blockquote,fieldset,input { margin:0; padding:0; }
+	h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,th { font-size:1em; font-weight:normal; font-style:normal; }
+	fieldset,img { border:none; }
+	caption,th { text-align:left; }
+	table { border-collapse:collapse; border-spacing:0; margin-bottom:10px; width:100%; }
+	ol,ul,li { list-style: none; }
+	iframe { float: right; width: 100%; }
+	
+	h2							{ font: bold 28px/35px Tahoma,"simsun","Microsoft Yahei"; text-align: center; padding: 15px 0 0 0; }
+	h3							{ font: bold 16px/30px "Microsoft Yahei"; text-align: center; }
+	h4							{ font: normal 14px/30px "Microsoft Yahei"; margin: 5px 0 20px 0; }
+	p  							{ font-size: 12px; color: grey; }
+
+	p { margin:0 0 1em 0; padding:0; } /* Default link styling */
+	a { text-decoration:underline; }
+	li a { text-decoration:none; }
+	a:hover { text-decoration:none; position:relative; top:1px; } /* Float an element left with a margin */
+	a:active { position:relative; top:1px; } /* Float an element left with a margin */
+
+	.floatL						{ float:left; } /* Float an element right with a margin */
+	.floatR 					{ float:right; } /* Float an element right with a margin */
+	.italic 					{ font-style:italic; } /* Italisise */
+	.upper 						{ text-transform:uppercase; } /* Italisise */
+	.clear 						{ clear:both; }
+	.hideText					{ text-indent:-3000em; overflow:hidden; }
+	
+	.clearfix:after 			{ content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+	.opacityDeep				{ filter:alpha(opacity=9); -moz-opacity: 0.9; -khtml-opacity: 0.9; opacity: 0.9; }
+	.opacityLight				{ filter:alpha(opacity=7); -moz-opacity: 0.7; -khtml-opacity: 0.7; opacity: 0.7; }
+	.shadow_a					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
+	.shadow_b					{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+	.shadow_c					{ -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); box-shadow: inset 0 0 5px rgba(0, 0, 0, 1); }
+	.shadow_a1					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+
+	.radius_a					{ -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+
+	.bg_1						{ background: url(/Lolit/images/bg_1.jpg) no-repeat center -50px; }
+	
+	blockquote					{ padding:20px; margin:0 40px 20px 20px; clear:both; }
+
+
+/* Default
+-------------------------------------------------------------------*/
+
+	html, body 					{ font: normal 12px/1.6 Tahoma,"simsun","Microsoft Yahei"; }	
+	body 						{ padding:0; margin:0; background-color: black; }
+	
+/* ·ÇIEÄÚºËä¯ÀÀÆ÷front_end_promptÒ³
+--------------------------------------------------------------------- */	
+
+.apply_suc_panel_div		{ width: 100%; }
+
+#panel_div					{ width: 100%; height: 768px; margin: 0 auto; position: fixed; z-index: -50; top: 0; }
+	
+.prompt_panel	        	{ width: 840px; height: 520px; margin: 55px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
+.shadow_b       			{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+
+.return_button				{ background: url(/Lolit/images/return_button.png) no-repeat; width: 63px; height: 62px; border: none; position: absolute; margin: -15px 0 0 20px; cursor: pointer; z-index: 200; }
+.return_button:hover		{ background: url(/Lolit/images/return_button_hover.png) no-repeat; z-index: 200px; }
+.return_button:active		{ background: url(/Lolit/images/return_button_active.png) no-repeat; z-index: 200px; }
+
+.prompt_bg					{ background: url(/Lolit/images/mumu1.png) no-repeat; background-position: 0 220px; width: 840px; height: 520px; position: absolute; }
+.prompt_bg_header			{ margin: 0 0 0 30px; width: 520px; float: left; }
+.prompt_bg_article	        { width: 455px; background-color: #eee; padding: 5px 10px; text-align: left; color: #5c634d; }
+
+.error_title				{ width: 500px; margin: 60px 0 10px 0; }
+.than_todo					{ margin: 90px 0 10px 0; }
+.eTodo_msg_span				{ color: #22324D!important; width: 455px; background-color: #eee; padding: 5px 10px; text-align: left;}
+
+.prompt_con					{ float: right; margin: 65px 75px 0 0; }
+.shadow_a1					{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+.prompt_con_img				{ width: 40px; height: 40px; margin: -1px; padding: 8px; }
+.prompt_con_img:hover		{ cursor: pointer; }	
+
+
+/*·ÇIEÄÚºËteam_regist_successÒ³
+----------------------------------------------------------------------------  */
+#panel_div				     	{ width: 100%; height: 768px; margin: 0 auto; position: fixed; z-index: -50; top: 0; }
+.bg_1							{ background: url(/Lolit/images/bg_1.jpg) no-repeat center -50px; }
+.apply_suc_panel				{ width: 840px; height: 500px; margin: 105px auto 0px auto; color: #22324D; background-color: rgba(227,227,227,0.9); }
+.apply_suc_bg					{ background: url(/Lolit/images/tianshi1.png) no-repeat; width: 840px; height: 500px; position: absolute; margin: -100px 0 0 230px; }
+	
+.apply_suc_panel_header 		{ margin: 0 0 0 30px; width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px;  font-size: 1.1em; color: #db7b17; }
+.congra							{ width: 200px; margin: 80px 0 0 0; }
+.apply_suc_panel_label			{ width: 200px; height: 25px; background-color: #ffeeee; display: inline-block; padding: 5px 0 0 5px; text-align: center; font-size: 1.1em; }
+.apply_suc_panel_span			{ width: 200px; height: 25px; display: inline-block; padding: 5px 0 0 5px; text-align: center; }	
+.apply_suc_panel_aside			{ height: 25px; padding: 5px 0 0 5px; color: #db7b17; margin: 50px 0 0 0; }
+
+.shadow_b						{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+.congra							{ width: 200px; margin: 80px 0 0 0; }
+
+.apply_step_section				{ width: 180px; height: 160px; float: left; margin: 0 25px 0 0; background-color: #ffeeee; text-align: center; padding: 0 10px 0 10px; }
+.apply_step_h2					{ height: 50px; padding: 20px 0 0 0; color: #333; font-size: 30px; }
+
+.shadow_a1						{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+
+.radius_a						{ -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; }
+
+.step_done						{ background-color: rgba(227,227,227,1)!important; }
+
+.skin_list						{ width: 100%; margin: 25px auto 50px auto; background-color: rgba(0,0,0,0.7); }
+.skin_list_div					{ width: 860px; margin: 0 auto; }
+.skin_list_img 					{ width: 410px; margin: 10px 5px 0 10px; }
+
+.shadow_a						{ -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); box-shadow: 0 0 5px rgba(0, 0, 0, 0.8); }
+
+.shadow_b						{ -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 1); -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 1); box-shadow: 0 0 10px rgba(0, 0, 0, 1); }
+.GRb               	            {width: 1000px;}
+.apply_step_p  					{ font-size: 12px; color: grey; }
