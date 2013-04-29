@@ -58,6 +58,22 @@ function pWin1Check() {
 		document.getElementById('pWin1_msg').style.display = "none";
 	}
 }
+// pRank1
+function pRank1Check() {
+	var pRank1 = document.getElementById('pRank1');
+	var reg = /^[0-9]*[1-9][0-9]*$/;
+	if (pRank1.value == "") {
+		document.getElementById('pRank1_msg').innerHTML = "请输入Rank值!";
+		document.getElementById('pRank1_msg').style.display = "";
+	} else if (!reg.test(pRank1.value) || pRank1.value < 0
+			|| pRank1.value > 3000) {
+		document.getElementById('pRank1_msg').innerHTML = "请输入有效Rank值!";
+		document.getElementById('pRank1_msg').style.display = "";
+	} else {
+		document.getElementById('pRank1_msg').innerHTML = "";
+		document.getElementById('pRank1_msg').style.display = "none";
+	}
+}
 // pId
 function pIdCheck() {
 	for ( var i = 1; i < 8; i++) {

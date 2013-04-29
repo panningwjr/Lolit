@@ -47,21 +47,19 @@
 				</div>
 
 				<ul class="ul_form_a">
-					<li><h4>队伍信息 Team Form</h4></li>
+					<li><h4>队伍信息 Team Form</h4>
+					</li>
 					<li class="li_form"><label for="tName" class="label_reg">队伍名称:</label><input
 						type="text" id="tName" name="tName" placeholder="如：大神联盟"
-						onblur="tNameCheck()">
-					</li>
+						onblur="tNameCheck()"></li>
 					<li class="reg_msg" id="tName_msg" style="display: none;"></li>
 					<li class="li_form"><label for="tPwd1" class="label_reg">队伍口令:</label><input
 						type="password" id="tPwd1" name="tPwd1"
-						placeholder="6-18位英文、数字或下划线" onblur="tPwd1Check()">
-					</li>
+						placeholder="6-18位英文、数字或下划线" onblur="tPwd1Check()"></li>
 					<li class="reg_msg" id="tPwd1_msg" style="display: none;"></li>
 					<li class="li_form"><label for="tPwd2" class="label_reg">确认口令:</label><input
 						type="password" id="tPwd2" name="tPwd2" placeholder="重复"
-						onblur="tPwd2Check()">
-					</li>
+						onblur="tPwd2Check()"></li>
 					</li>
 					<li class="reg_msg" id="tPwd2_msg" style="display: none;"></li>
 					<br>
@@ -87,12 +85,10 @@
 							<option value="外国语">外国语</option>
 							<option value="应用技术">应用技术</option>
 							<option value="国际教育">国际教育</option>
-					</select><label>学院</label>
-					</li>
+					</select><label>学院</label></li>
 					<li class="li_form"><label for="pWin1" class="label_reg">队员平均胜场:</label><input
 						type="text" name="pWin1" id="pWin1" onblur="pWin1Check()"><label
-						style="margin: 0 0 0 88px;">场</label>
-					</li>
+						style="margin: 0 0 0 88px;">场</label></li>
 					<li class="reg_msg" id="pWin1_msg" style="display: none;"></li>
 					<li class="li_form"><label for="pServer1" class="label_reg">队员大号所在大区:</label><select
 						id="pServer1" name="pServer1">
@@ -121,10 +117,12 @@
 							<option value="诺克萨斯">诺克萨斯</option>
 							<option value="德玛西亚">德玛西亚</option>
 							<option value="祖安">祖安</option>
-					</select></li>
-					<li class="li_form"><label for="pRank1" class="label_reg">队伍rank值:</label><input
-						type="text" id="pRank1" name="pRank1" placeholder="可填队长rank来代表本队">
+					</select>
 					</li>
+					<li class="li_form"><label for="pRank1" class="label_reg">队伍rank值:</label><input
+						type="text" id="pRank1" name="pRank1" placeholder="可填队长rank来代表本队"
+						onblur="pRank1Check()"></li>
+					<li class="reg_msg" id="pRank1_msg" style="display: none;"></li>
 				</ul>
 
 				<div class="div_ps">
@@ -140,30 +138,25 @@
 
 			<div class="register_player shadow_b">
 				<ul class="ul_form_a">
-					<li class="li_form"><h4>队长 Captain</h4>
-					</li>
+					<li class="li_form"><h4>队长 Captain</h4></li>
 					<br>
 					<li class="li_form"><label for="pId1" class="label_reg">学号:</label><input
 						type="text" id="pId1" name="pId1" placeholder="xxxxxx-xxxx"
-						onblur="pIdCheck()">
-					</li>
+						onblur="pIdCheck()"></li>
 					<li class="reg_msg" id="pId_msg1" style="display: none;"></li>
 					<li class="li_form"><label for="pName1" class="label_reg">姓名:</label><input
 						type="text" id="pName1" name="pName1" placeholder="请填写真实姓名"
-						onblur="pNameCheck()">
-					</li>
+						onblur="pNameCheck()"></li>
 					<li class="reg_msg" id="pName_msg1" style="display: none;"></li>
 					<li class="li_form"><label for="pGender1" class="label_reg">性别:</label><input
 						type="radio" id="pGender1" value="1" name="pGender1"
 						class="bool_range" checked="checked"><label
 						id="pGender1_label">男</label> <input type="radio" id="pGender1"
 						value="2" name="pGender1" class="bool_range"><label
-						id="pGender1_label">女</label>
-					</li>
+						id="pGender1_label">女</label></li>
 					<li class="li_form"><label for="tPhone" class="label_reg">联系电话:</label><input
 						type="tel" id="tPhone" name="tPhone" placeholder="xxx-xxxx-xxxx"
-						onblur="tPhoneCheck()">
-					</li>
+						onblur="tPhoneCheck()"></li>
 					<li class="reg_msg" id="tPhone_msg" style="display: none;"></li>
 					<br>
 					<br>
@@ -172,8 +165,7 @@
 						name="tCheckNum" maxlength=4><img id="codeImg" border=0
 						src="/Lolit/Front_End/Team_Apply/identifyingcode_image.jsp"
 						style="margin: 0 0 0 150px;"><a href="javascript:void(0)"
-						onclick="reloadCheckCode()">换一张</a>
-					</li>
+						onclick="reloadCheckCode()">换一张</a></li>
 				</ul>
 				<div class="div_ps">
 					<p>说明：</p>

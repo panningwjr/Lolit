@@ -33,7 +33,7 @@ function teamRegCheck() {
 	} else {
 		tPwd2.setCustomValidity("");
 	}
-	
+
 	// tPhone
 	var tPhone = document.getElementById('tPhone');
 	var reg = /^1[3|4|5|8][0-9]\d{8}$/;
@@ -48,6 +48,18 @@ function teamRegCheck() {
 
 	// player
 	for ( var i = 1; i < 8; i++) {
+		// pRank
+		var pRank = document.getElementById('pRank' + i);
+		var reg = /^[0-9]*[1-9][0-9]*$/;
+		if (pRank.value == "") {
+			pRank.setCustomValidity("此项不能为空。");
+		} else if (!reg.test(pRank.value) || pRank.value < 0
+				|| pRank.value > 3000) {
+			pRank.setCustomValidity("请输入有效rank值。");
+			pRank.checkValidity();
+		} else {
+			pRank.setCustomValidity("");
+		}
 		// pId
 		var pId = document.getElementById('pId' + i);
 		var reg = /^[0|1]\d{9}$/;
