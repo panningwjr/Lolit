@@ -11,8 +11,8 @@ import java.sql.PreparedStatement;
 public class DatabaseConn {
 	private static final String DBDRIVER = "com.mysql.jdbc.Driver";
 	private static final String DBURL = "jdbc:mysql://localhost:3306/lolit";
-	private static final String DBUSER = "root";
-	private static final String DBPASSWORD = "root";
+	private static final String DBUSER = "lolit";
+	private static final String DBPASSWORD = "qwertyuiop";
 
 	private Connection conn = null;
 	private static DatabaseConn etDBConn = null;
